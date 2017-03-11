@@ -4,7 +4,9 @@ A simple Swift-based interface to Redis, using CocoaAsyncSocket
 
 ## Introduction
 
-We had a project that required a modern implementation of either an ObjC or Swift-based redis client. After some research, it became clear that [CocoaAsyncSocket](https://github.com/robbiehanson/CocoaAsyncSocket) was far-and-away the superior choice for socket communication. First, it is in the public domain, so it has excellent licensing policies. Second, it has more than 8k stars and 2k forks, making it very popular. Finally, it is actively and frequently maintained. Thus, any such solution we considered must be built on top of CocoaAsyncSockets.
+We had a project that required a modern implementation of either an ObjC or Swift-based redis client. After some research, it became clear that most objc or swift libraries either attempt to implement both the socket communication and the redis protocol, or use one-off socket communication libraries. For example, here is one such dual socket and redis protocol implementation, [ObjCHiredis](https://github.com/lp/ObjCHiredis). Such libraries contain an excessive amount of network and pointer logic, and we found them prone to crashes. Additionally, experience suggests that pointer-heavy C/C++ code is almost certainly vulnerable to exploits.
+
+In order to have maximum confidence in the robustness of our socket communication, we investigated iOS socket libraries. [CocoaAsyncSocket](https://github.com/robbiehanson/CocoaAsyncSocket) was far-and-away the superior choice. First, it is in the public domain, so it has excellent licensing policies. Second, it has more than 8k stars and 2k forks, making it very popular. Finally, it is actively and frequently maintained. Thus, any such solution we considered must be built on top of CocoaAsyncSockets.
 
 Numerous Swift-based interfaces to redis exist, including:
 

@@ -14,6 +14,7 @@ public protocol RedisManagerDelegate: NSObjectProtocol {
     func socketDidConnect(redisManager: RedisClient)
 }
 
+@objc
 public class RedisClient: NSObject, GCDAsyncSocketDelegate, RedisMessageReceivedDelegate {
     public typealias CompletionBlock = (NSArray) -> Void
     public weak var delegate: RedisManagerDelegate?

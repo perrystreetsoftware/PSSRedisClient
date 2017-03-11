@@ -1,5 +1,5 @@
 //
-//  RedisManager.swift
+//  RedisClient.swift
 //  Husband Material
 //
 //
@@ -10,11 +10,11 @@ import CocoaAsyncSocket
 @objc
 public protocol RedisManagerDelegate: NSObjectProtocol {
     func subscriptionMessageReceived(channel: String, message: String)
-    func socketDidDisconnect(redisManager: RedisManager)
-    func socketDidConnect(redisManager: RedisManager)
+    func socketDidDisconnect(redisManager: RedisClient)
+    func socketDidConnect(redisManager: RedisClient)
 }
 
-public class RedisManager: NSObject, GCDAsyncSocketDelegate, RedisMessageReceivedDelegate {
+public class RedisClient: NSObject, GCDAsyncSocketDelegate, RedisMessageReceivedDelegate {
     public typealias CompletionBlock = (NSArray) -> Void
     public weak var delegate: RedisManagerDelegate?
 
@@ -25,7 +25,7 @@ public class RedisManager: NSObject, GCDAsyncSocketDelegate, RedisMessageReceive
 
     public init(delegate: RedisManagerDelegate?) {
         self.socket = GCDAsyncSocket(delegate: nil, delegateQueue: DispatchQueue.main)
-        self.separator = RedisManager.convertStringIntoData(str: "\r\n")!
+        self.separator = RedisClient.convertStringIntoData(str: "\r\n")!
         self.parseManager = RedisResponseParser(delegate: nil)
         self.delegate = delegate
         self.completionBlocks = Array<CompletionBlock>()
@@ -94,7 +94,7 @@ public class RedisManager: NSObject, GCDAsyncSocketDelegate, RedisMessageReceive
 
         debugPrint("SOCKET: Command with \(commandArray.joined())")
 
-        return RedisManager.convertStringIntoData(str: commandArray.joined())! as Data
+        return RedisClient.convertStringIntoData(str: commandArray.joined())! as Data
     }
 
     // MARK: Redis functions
@@ -104,12 +104,12 @@ public class RedisManager: NSObject, GCDAsyncSocketDelegate, RedisMessageReceive
 
         commandArray.append("*\(args.count)\r\n")
         for arg in args {
-            RedisManager.addStringToCommandArray(commandArray: &commandArray, str1: arg)
+            RedisClient.addStringToCommandArray(commandArray: &commandArray, str1: arg)
         }
 
         debugPrint("SOCKET: Command with \(commandArray.joined())")
 
-        let data = RedisManager.convertStringIntoData(str: commandArray.joined())! as Data
+        let data = RedisClient.convertStringIntoData(str: commandArray.joined())! as Data
 
         sendCommand(data, completion)
     }

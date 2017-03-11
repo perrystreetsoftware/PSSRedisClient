@@ -20,16 +20,16 @@ class ViewController: UIViewController, RedisManagerDelegate, UITextFieldDelegat
     static let defaultRedisPwd: String = "foo"
     static let defaultRedisChannel: String = "foo"
 
-    var redisManager: RedisManager?
-    var subscriptionManager: RedisManager?
+    var redisManager: RedisClient?
+    var subscriptionManager: RedisClient?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.connectionInfo.text = "Disconnected"
 
-        self.redisManager = RedisManager(delegate: self)
-        self.subscriptionManager = RedisManager(delegate: self)
+        self.redisManager = RedisClient(delegate: self)
+        self.subscriptionManager = RedisClient(delegate: self)
         self.redisManager?.connect(host: ViewController.defaultRedisHost,
                                    port: ViewController.defaultRedisPort,
                                    pwd: ViewController.defaultRedisPwd)
@@ -59,7 +59,7 @@ class ViewController: UIViewController, RedisManagerDelegate, UITextFieldDelegat
         self.results.text = "Channel: \(channel) Message: \(message)"
     }
 
-    func socketDidConnect(redisManager: RedisManager) {
+    func socketDidConnect(redisManager: RedisClient) {
         self.connectionInfo.text = "Connected";
 
         // Setup a subscription after we have connected
@@ -68,7 +68,7 @@ class ViewController: UIViewController, RedisManagerDelegate, UITextFieldDelegat
         }
     }
 
-    func socketDidDisconnect(redisManager: RedisManager) {
+    func socketDidDisconnect(redisManager: RedisClient) {
         self.connectionInfo.text = "Disconnected"
     }
 

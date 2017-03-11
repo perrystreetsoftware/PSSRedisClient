@@ -24,7 +24,7 @@
 		AEE9644DA0EFCF945438E125BA4F0724 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9235AEFD042C8D96AF4B4AA61E18C420 /* GCDAsyncUdpSocket.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		AF32034F892C60C2E2A42C789D062CC2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CAC461E8D0D0B8EC85A1606B640DDCF /* Foundation.framework */; };
 		D308DCBA59F96F99F2BF82F09248427D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CAC461E8D0D0B8EC85A1606B640DDCF /* Foundation.framework */; };
-		DB872CCE39A82A1922BF8B34D91A4D11 /* RedisManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1380613D95315BBD25DDCBD8133B037 /* RedisManager.swift */; };
+		DB872CCE39A82A1922BF8B34D91A4D11 /* RedisClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1380613D95315BBD25DDCBD8133B037 /* RedisClient.swift */; };
 		E4230DB0D114C94B081018C1AC1E9972 /* CocoaAsyncSocket-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A8A7C0B72CB1BFEC20A42E9E5B3E1A5D /* CocoaAsyncSocket-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E913221182BB7029032AB3048A2E47B7 /* Pods-PSSRedisClient_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F4D4E02F2E65D60BCBB76E34FE7A44 /* Pods-PSSRedisClient_Example-dummy.m */; };
 		F3C5B32AFA7401690A809B584AB6C6E4 /* PSSRedisClient-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 363DC992B812B9F8E956A43776FEBC27 /* PSSRedisClient-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -94,7 +94,7 @@
 		B1E793DDAA0A6710220072136A4A6900 /* PSSRedisClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PSSRedisClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE1E5C5A0566C301B7697E071AF0E6C7 /* Pods-PSSRedisClient_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PSSRedisClient_Example-frameworks.sh"; sourceTree = "<group>"; };
 		CB9BA5C6DE04B9442C149828B088B18F /* Pods-PSSRedisClient_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PSSRedisClient_Example.release.xcconfig"; sourceTree = "<group>"; };
-		D1380613D95315BBD25DDCBD8133B037 /* RedisManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RedisManager.swift; sourceTree = "<group>"; };
+		D1380613D95315BBD25DDCBD8133B037 /* RedisClient.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RedisClient.swift; sourceTree = "<group>"; };
 		D82B81E88C7D98976B018DB4903B5D0C /* GCDAsyncSocket.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCDAsyncSocket.h; path = Source/GCD/GCDAsyncSocket.h; sourceTree = "<group>"; };
 		EBE3BCF261D0BE41733DC6907FADF66F /* Pods-PSSRedisClient_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PSSRedisClient_Tests-dummy.m"; sourceTree = "<group>"; };
 		F1FA2658F5B75A67120C9AE3345FD94E /* Pods-PSSRedisClient_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PSSRedisClient_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -146,7 +146,7 @@
 		092A5D85786396DD096F07D182B08280 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				D1380613D95315BBD25DDCBD8133B037 /* RedisManager.swift */,
+				D1380613D95315BBD25DDCBD8133B037 /* RedisClient.swift */,
 				A13C3F88DE14C060D36B36874D547F5C /* RedisResponseParser.swift */,
 			);
 			path = Classes;
@@ -467,7 +467,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				57E0AC66D7DEF53434480EC939FF2F81 /* PSSRedisClient-dummy.m in Sources */,
-				DB872CCE39A82A1922BF8B34D91A4D11 /* RedisManager.swift in Sources */,
+				DB872CCE39A82A1922BF8B34D91A4D11 /* RedisClient.swift in Sources */,
 				7D3AC1AA4660741C2728D528D1B7D380 /* RedisResponseParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

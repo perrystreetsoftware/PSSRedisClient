@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'PSSRedisClient_Example' do
+  pod 'PSSRedisClient', :path => '../'
+
+  target 'PSSRedisClient_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

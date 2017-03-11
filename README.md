@@ -9,16 +9,15 @@ We had a project that required a modern implementation of either an ObjC or Swif
 Numerous Swift-based interfaces to redis exist, including:
 
 1. [RedBird](https://github.com/vapor/redbird)
-This library has a networking dependency on the Vaport Socks library, not the more popular and widely-used CocoaAsyncSocket library
+This library has a networking dependency on the Vaport Socks library, not the [CocoaAsyncSocket](https://github.com/robbiehanson/CocoaAsyncSocket) library
 1. [Zewo Redis](https://github.com/Zewo/Redis)
-This library has a dependency on Zewo's own [TCP socket library](https://github.com/Zewo/TCP), again not the more popular [CocoaAsyncSocket](https://github.com/robbiehanson/CocoaAsyncSocket) library
+This library has a dependency on Zewo's own [TCP socket library](https://github.com/Zewo/TCP), again not [CocoaAsyncSocket](https://github.com/robbiehanson/CocoaAsyncSocket) library
 1. [Swidis](https://github.com/FarhadSaadatpei/Swidis)
-There doesn't seem to be any actual code in this library, so it's unclear that it can be used productively for anything
+There doesn't seem to be any actual code in this library??
 1. [SwiftRedis](https://github.com/ronp001/SwiftRedis)
-This library appears to implement the networking functions itself, instead of using [CocoaAsyncSocket](https://github.com/robbiehanson/CocoaAsyncSocket)
+This library appears to implement the networking functions itself, instead of using the [CocoaAsyncSocket](https://github.com/robbiehanson/CocoaAsyncSocket) library
 
 Because none of these solutions were built atop CocoaAsyncSockets, we created our own simple class that is able to use CocoaAsyncSockets for the networking component, and that parses the [redis protocol](https://redis.io/topics/protocol).
-
 
 ## Example
 

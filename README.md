@@ -1,6 +1,6 @@
 # PSSRedisClient
 
-A simple Swift-based interface to Redis, using CocoaAsyncSocket
+A simple [Swift](https://developer.apple.com/swift/)-based interface to [Redis](https://redis.io), using [CocoaAsyncSocket](https://github.com/robbiehanson/CocoaAsyncSocket)
 
 ## Introduction
 
@@ -10,8 +10,8 @@ In order to have maximum confidence in the robustness of our socket communicatio
 
 1. First result in Google searches for [iOS socket libraries](https://www.google.com/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=ios+socket+libraries)
 1. It is in the public domain
-1. More than 8k stars and 2k forks, which is an order of magnitude more than the next most popular library
-1. Actively and frequently maintained
+1. More than 8k stars and 2k forks, which is an order of magnitude more than the [next most popular library](https://github.com/MegaBits/SIOSocket)
+1. [Actively and frequently maintained](https://github.com/robbiehanson/CocoaAsyncSocket/commits/master)
 
 Finally, as an additional consideration for our redis client, we wanted a library installable via [Cocoapods](https://www.cocoapods.org).
 

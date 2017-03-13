@@ -62,7 +62,7 @@ override func viewDidLoad() {
                                       pwd: "password")
 }
 
-func socketDidConnect(redisManager: RedisClient) {
+func socketDidConnect(client: RedisClient) {
     debugPrint("SOCKET: Connected")
 
     // Setup a subscription after we have connected
@@ -71,7 +71,7 @@ func socketDidConnect(redisManager: RedisClient) {
     }
 }
 
-func socketDidDisconnect(redisManager: RedisClient, error: Error?) {
+func socketDidDisconnect(client: RedisClient, error: Error?) {
     debugPrint("Disconnected (Error: \(error?.localizedDescription))")
 }
 

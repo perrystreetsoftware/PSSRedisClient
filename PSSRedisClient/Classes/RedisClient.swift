@@ -10,8 +10,8 @@ import CocoaAsyncSocket
 @objc
 public protocol RedisManagerDelegate: NSObjectProtocol {
     func subscriptionMessageReceived(channel: String, message: String)
-    func socketDidDisconnect(redisManager: RedisClient, error: Error?)
-    func socketDidConnect(redisManager: RedisClient)
+    func socketDidDisconnect(client: RedisClient, error: Error?)
+    func socketDidConnect(client: RedisClient)
 }
 
 @objc
@@ -150,7 +150,7 @@ public class RedisClient: NSObject, GCDAsyncSocketDelegate, RedisMessageReceived
     public func socket(_ sock: GCDAsyncSocket, didConnectToHost host: String, port: UInt16) {
         debugPrint("SOCKET: Cool, I'm connected! That was easy.");
 
-        self.delegate?.socketDidConnect(redisManager: self)
+        self.delegate?.socketDidConnect(client: self)
     }
 
     public func socket(_ sock: GCDAsyncSocket, didConnectTo url: URL) {
@@ -160,7 +160,7 @@ public class RedisClient: NSObject, GCDAsyncSocketDelegate, RedisMessageReceived
     public func socketDidDisconnect(_ sock: GCDAsyncSocket, withError err: Error?) {
         debugPrint("SOCKET: Disconnected me: \(err?.localizedDescription)");
 
-        self.delegate?.socketDidDisconnect(redisManager: self, error: err)
+        self.delegate?.socketDidDisconnect(client: self, error: err)
     }
 
     public func socketDidCloseReadStream(_ sock: GCDAsyncSocket) {

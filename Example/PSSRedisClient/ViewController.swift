@@ -57,7 +57,7 @@ class ViewController: UIViewController, RedisManagerDelegate, UITextFieldDelegat
         self.results.text = "Channel: \(channel) Message: \(message)"
     }
 
-    func socketDidConnect(redisManager: RedisClient) {
+    func socketDidConnect(client: RedisClient) {
         self.connectionInfo.text = "Connected";
 
         // Setup a subscription after we have connected
@@ -66,7 +66,7 @@ class ViewController: UIViewController, RedisManagerDelegate, UITextFieldDelegat
         }
     }
 
-    func socketDidDisconnect(redisManager: RedisClient, error: Error?) {
+    func socketDidDisconnect(client: RedisClient, error: Error?) {
         self.connectionInfo.text = "Disconnected (Error: \(error?.localizedDescription))"
     }
 

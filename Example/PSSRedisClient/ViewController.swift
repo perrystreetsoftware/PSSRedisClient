@@ -48,9 +48,7 @@ class ViewController: UIViewController, RedisManagerDelegate, UITextFieldDelegat
 
     @IBAction func executeTapped() {
         if let command: String = self.input.text {
-            let components = command.components(separatedBy: [" "])
-
-            self.redisManager?.exec(args: components,
+            self.redisManager?.exec(command: command,
                                     completion: self.messageReceived);
         }
     }

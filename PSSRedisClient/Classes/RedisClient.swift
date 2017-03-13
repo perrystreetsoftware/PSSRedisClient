@@ -100,6 +100,12 @@ public class RedisClient: NSObject, GCDAsyncSocketDelegate, RedisMessageReceived
 
     // MARK: Redis functions
 
+    public func exec(command: String, completion: CompletionBlock?) {
+        let components = command.components(separatedBy: [" "])
+
+        self.exec(args: components, completion: completion)
+    }
+
     public func exec(args: Array<String>, completion: CompletionBlock?) {
         var commandArray = Array<String>()
 

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'PSSRedisClient'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'A simple Swift-based interface to Redis, using CocoaAsyncSocket'
   s.description      = <<-DESC
 A simple Swift-based interface to Redis, using CocoaAsyncSocket as the networking layer and a swift-based implementation of the redis protocol.

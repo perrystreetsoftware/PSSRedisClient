@@ -6,9 +6,14 @@ A simple Swift-based interface to Redis, using CocoaAsyncSocket
 
 We had a project that required a modern implementation of either an ObjC or Swift-based redis client. After some research, it became clear that most objc or swift libraries either attempt to implement both the socket communication and the redis protocol, or use one-off socket communication libraries. For example, here is one such dual socket and redis protocol implementation, [ObjCHiredis](https://github.com/lp/ObjCHiredis). Such libraries contain an excessive amount of network and pointer logic, and we found them prone to crashes. Additionally, experience suggests that pointer-heavy C/C++ code is almost certainly vulnerable to exploits.
 
-In order to have maximum confidence in the robustness of our socket communication, we investigated iOS socket libraries. [CocoaAsyncSocket](https://github.com/robbiehanson/CocoaAsyncSocket) was far-and-away the superior choice. First, it is in the public domain, so it has excellent licensing policies. Second, it has more than 8k stars and 2k forks, making it very popular. Finally, it is actively and frequently maintained. Thus, any such solution we considered must be built on top of CocoaAsyncSockets.
+In order to have maximum confidence in the robustness of our socket communication, we investigated iOS socket libraries. [CocoaAsyncSocket](https://github.com/robbiehanson/CocoaAsyncSocket) was the choice we made, for these reasons:
 
-As an additional consideration, we wanted a library installable via [Cocoapods](https://www.cocoapods.org).
+1. First result in Google searches for [iOS socket libraries](https://www.google.com/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=ios+socket+libraries)
+1. It is in the public domain
+1. More than 8k stars and 2k forks
+1. Actively and frequently maintained
+
+Finally, as an additional consideration for our redis client, we wanted a library installable via [Cocoapods](https://www.cocoapods.org).
 
 Numerous Swift-based interfaces to redis exist, including:
 

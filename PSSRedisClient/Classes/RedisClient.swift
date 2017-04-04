@@ -50,17 +50,22 @@ public class RedisClient: NSObject, GCDAsyncSocketDelegate, RedisMessageReceived
         NSObject.cancelPreviousPerformRequests(withTarget: self)
     }
 
-    public func close() {
+    private func doDisconnect() {
         self.socket.disconnect()
+        self.parseManager.reset()
+    }
+
+    public func close() {
+        self.doDisconnect()
     }
 
     public func connect(host: String, port: Int, pwd: String?) {
         // We might be using a new auth or channel, so let's disconnect if we are connected
         if self.socket.isConnected {
-            self.socket.disconnect()
+            self.doDisconnect()
         }
 
-        debugPrint("SOCKET: Attempting doConnect to \(host) \(port) \(pwd)")
+        debugPrint("SOCKET: Attempting doConnect to \(host) \(port) \(String(describing: pwd))")
 
         do {
             try self.socket.connect(toHost: host, onPort: UInt16(port))
@@ -158,14 +163,16 @@ public class RedisClient: NSObject, GCDAsyncSocketDelegate, RedisMessageReceived
     }
 
     public func socketDidDisconnect(_ sock: GCDAsyncSocket, withError err: Error?) {
-        debugPrint("SOCKET: Disconnected me: \(err?.localizedDescription)");
+        debugPrint("SOCKET: Disconnected me: \(String(describing: err?.localizedDescription))");
 
+        self.parseManager.reset()
         self.delegate?.socketDidDisconnect(client: self, error: err)
     }
 
     public func socketDidCloseReadStream(_ sock: GCDAsyncSocket) {
         debugPrint("SOCKET: socketDidCloseReadStream: Disconnecting so we can rerun our connection")
-        self.socket.disconnect()
+
+        self.doDisconnect()
     }
 
     // MARK: Parser

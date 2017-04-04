@@ -120,6 +120,11 @@ class RedisResponseParser: NSObject {
         self.results = Array<Any?>()
     }
 
+    func reset() {
+        self.parserStack.removeAll()
+        self.results.removeAll()
+    }
+
     func parseLine(data: Data) {
 
         if (self.parserStack.count == 0) {

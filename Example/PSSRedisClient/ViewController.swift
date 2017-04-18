@@ -58,7 +58,7 @@ class ViewController: UIViewController, RedisManagerDelegate, UITextFieldDelegat
     }
 
     func socketDidConnect(client: RedisClient) {
-        self.connectionInfo.text = "Connected";
+        self.connectionInfo.text = client.isConnected() ? "Connected" : "Disconnected"
 
         // Setup a subscription after we have connected
         if (redisManager == self.subscriptionManager) {

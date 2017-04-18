@@ -59,6 +59,10 @@ public class RedisClient: NSObject, GCDAsyncSocketDelegate, RedisMessageReceived
         self.doDisconnect()
     }
 
+    public func isConnected() -> Bool {
+        return self.socket.isConnected
+    }
+
     public func connect(host: String, port: Int, pwd: String?) {
         // We might be using a new auth or channel, so let's disconnect if we are connected
         if self.socket.isConnected {

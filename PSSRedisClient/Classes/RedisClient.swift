@@ -5,7 +5,7 @@
 //
 
 import Foundation
-import CocoaAsyncSocket
+import PSSCocoaAsyncSocket
 
 @objc
 public protocol RedisManagerDelegate: NSObjectProtocol {

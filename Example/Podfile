@@ -1,4 +1,8 @@
+source 'https://github.com/CocoaPods/Specs.git'
+source 'https://github.com/perrystreetsoftware/Husband-Cocoapods.git'
+
 use_frameworks!
+platform :ios, '9.0'
 
 target 'PSSRedisClient_Example' do
   pod 'PSSRedisClient', :path => '../'

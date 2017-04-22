@@ -164,11 +164,12 @@ enum GCDAsyncSocketConfig
 };
 
 #if TARGET_OS_IPHONE
-  static NSThread *cfstreamThread;  // Used for CFStreams
+//  static NSThread *cfstreamThread;  // Used for CFStreams
 
 
   static uint64_t cfstreamThreadRetainCount;   // setup & teardown
   static dispatch_queue_t cfstreamThreadSetupQueue; // setup & teardown
+  static dispatch_queue_t cfstreamThreadMainQueue; // setup & teardown
 #endif
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -7458,18 +7459,8 @@ static OSStatus SSLWriteFunction(SSLConnectionRef connection, const void *data, 
 		
 		cfstreamThreadRetainCount = 0;
 		cfstreamThreadSetupQueue = dispatch_queue_create("GCDAsyncSocket-CFStreamThreadSetup", DISPATCH_QUEUE_SERIAL);
+        cfstreamThreadMainQueue = dispatch_queue_create("GCDAsyncSocket-CFStreamThreadMain", DISPATCH_QUEUE_SERIAL);
 	});
-	
-	dispatch_sync(cfstreamThreadSetupQueue, ^{ @autoreleasepool {
-		
-		if (++cfstreamThreadRetainCount == 1)
-		{
-			cfstreamThread = [[NSThread alloc] initWithTarget:self
-			                                         selector:@selector(cfstreamThread)
-			                                           object:nil];
-			[cfstreamThread start];
-		}
-	}});
 }
 
 + (void)stopCFStreamThreadIfNeeded
@@ -7482,67 +7473,68 @@ static OSStatus SSLWriteFunction(SSLConnectionRef connection, const void *data, 
 	// So what we're going to do is use a little delay before taking it down.
 	// This way it can be reused properly in situations where multiple sockets are continually in flux.
 	
-	int delayInSeconds = 30;
-	dispatch_time_t when = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-	dispatch_after(when, cfstreamThreadSetupQueue, ^{ @autoreleasepool {
-	#pragma clang diagnostic push
-	#pragma clang diagnostic warning "-Wimplicit-retain-self"
-		
-		if (cfstreamThreadRetainCount == 0)
-		{
-			LogWarn(@"Logic error concerning cfstreamThread start / stop");
-			return_from_block;
-		}
-		
-		if (--cfstreamThreadRetainCount == 0)
-		{
-			[cfstreamThread cancel]; // set isCancelled flag
-			
-			// wake up the thread
-            [[self class] performSelector:@selector(ignore:)
-                                 onThread:cfstreamThread
-                               withObject:[NSNull null]
-                            waitUntilDone:NO];
-            
-			cfstreamThread = nil;
-		}
-		
-	#pragma clang diagnostic pop
-	}});
+//	int delayInSeconds = 30;
+//	dispatch_time_t when = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+//	dispatch_after(when, cfstreamThreadSetupQueue, ^{ @autoreleasepool {
+//	#pragma clang diagnostic push
+//	#pragma clang diagnostic warning "-Wimplicit-retain-self"
+//		
+//		if (cfstreamThreadRetainCount == 0)
+//		{
+//			LogWarn(@"Logic error concerning cfstreamThread start / stop");
+//			return_from_block;
+//		}
+//		
+//		if (--cfstreamThreadRetainCount == 0)
+//		{
+//			[cfstreamThread cancel]; // set isCancelled flag
+//			
+//			// wake up the thread
+//            [[self class] performSelector:@selector(ignore:)
+//                                 onThread:cfstreamThread
+//                               withObject:[NSNull null]
+//                            waitUntilDone:NO];
+//            
+//			cfstreamThread = nil;
+//		}
+//		
+//	#pragma clang diagnostic pop
+//	}});
 }
 
-+ (void)cfstreamThread { @autoreleasepool
-{
-	[[NSThread currentThread] setName:GCDAsyncSocketThreadName];
-	
-	LogInfo(@"CFStreamThread: Started");
-	
-	// We can't run the run loop unless it has an associated input source or a timer.
-	// So we'll just create a timer that will never fire - unless the server runs for decades.
-	[NSTimer scheduledTimerWithTimeInterval:[[NSDate distantFuture] timeIntervalSinceNow]
-	                                 target:self
-	                               selector:@selector(ignore:)
-	                               userInfo:nil
-	                                repeats:YES];
-	
-	NSThread *currentThread = [NSThread currentThread];
-	NSRunLoop *currentRunLoop = [NSRunLoop currentRunLoop];
-	
-	BOOL isCancelled = [currentThread isCancelled];
-	
-	while (!isCancelled && [currentRunLoop runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]])
-	{
-		isCancelled = [currentThread isCancelled];
-	}
-	
-	LogInfo(@"CFStreamThread: Stopped");
-}}
+//+ (void)cfstreamThread { @autoreleasepool
+//{
+//	[[NSThread currentThread] setName:GCDAsyncSocketThreadName];
+//	
+//	LogInfo(@"CFStreamThread: Started");
+//	
+//	// We can't run the run loop unless it has an associated input source or a timer.
+//	// So we'll just create a timer that will never fire - unless the server runs for decades.
+//	[NSTimer scheduledTimerWithTimeInterval:[[NSDate distantFuture] timeIntervalSinceNow]
+//	                                 target:self
+//	                               selector:@selector(ignore:)
+//	                               userInfo:nil
+//	                                repeats:YES];
+//	
+//	NSThread *currentThread = [NSThread currentThread];
+//	NSRunLoop *currentRunLoop = [NSRunLoop currentRunLoop];
+//	
+//	BOOL isCancelled = [currentThread isCancelled];
+//	
+//	while (!isCancelled && [currentRunLoop runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]])
+//	{
+//		isCancelled = [currentThread isCancelled];
+//	}
+//	
+//	LogInfo(@"CFStreamThread: Stopped");
+//}}
 
 + (void)scheduleCFStreams:(GCDAsyncSocket *)asyncSocket
 {
 	LogTrace();
-	NSAssert([NSThread currentThread] == cfstreamThread, @"Invoked on wrong thread");
-	
+//    http://stackoverflow.com/a/17678556/61072
+//	NSAssert([NSThread currentThread] == cfstreamThread, @"Invoked on wrong thread");
+
 	CFRunLoopRef runLoop = CFRunLoopGetCurrent();
 	
 	if (asyncSocket->readStream)
@@ -7555,8 +7547,9 @@ static OSStatus SSLWriteFunction(SSLConnectionRef connection, const void *data, 
 + (void)unscheduleCFStreams:(GCDAsyncSocket *)asyncSocket
 {
 	LogTrace();
-	NSAssert([NSThread currentThread] == cfstreamThread, @"Invoked on wrong thread");
-	
+    //    http://stackoverflow.com/a/17678556/61072
+//	NSAssert([NSThread currentThread] == cfstreamThread, @"Invoked on wrong thread");
+
 	CFRunLoopRef runLoop = CFRunLoopGetCurrent();
 	
 	if (asyncSocket->readStream)
@@ -7808,11 +7801,11 @@ static void CFWriteStreamCallback (CFWriteStreamRef stream, CFStreamEventType ty
 		LogVerbose(@"Adding streams to runloop...");
 		
 		[[self class] startCFStreamThreadIfNeeded];
-		[[self class] performSelector:@selector(scheduleCFStreams:)
-		                     onThread:cfstreamThread
-		                   withObject:self
-		                waitUntilDone:YES];
-		
+
+        dispatch_sync(cfstreamThreadMainQueue, ^{
+            [[self class] scheduleCFStreams:self];
+        });
+
 		flags |= kAddedStreamsToRunLoop;
 	}
 	
@@ -7829,11 +7822,11 @@ static void CFWriteStreamCallback (CFWriteStreamRef stream, CFStreamEventType ty
 	if (flags & kAddedStreamsToRunLoop)
 	{
 		LogVerbose(@"Removing streams from runloop...");
-		
-		[[self class] performSelector:@selector(unscheduleCFStreams:)
-		                     onThread:cfstreamThread
-		                   withObject:self
-		                waitUntilDone:YES];
+
+        dispatch_sync(cfstreamThreadMainQueue, ^{
+            [[self class] unscheduleCFStreams:self];
+        });
+
 		[[self class] stopCFStreamThreadIfNeeded];
 		
 		flags &= ~kAddedStreamsToRunLoop;

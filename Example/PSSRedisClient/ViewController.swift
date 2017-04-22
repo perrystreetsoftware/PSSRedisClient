@@ -21,6 +21,14 @@ class ViewController: UIViewController, RedisManagerDelegate, UITextFieldDelegat
     static let defaultRedisChannel: String = "foo"
 
     var redisManager: RedisClient?
+    var redisManager2: RedisClient?
+    var redisManager3: RedisClient?
+    var redisManager4: RedisClient?
+    var redisManager5: RedisClient?
+    var redisManager6: RedisClient?
+    var redisManager7: RedisClient?
+    var redisManager8: RedisClient?
+    var redisManager9: RedisClient?
     var subscriptionManager: RedisClient?
 
     override func viewDidLoad() {
@@ -34,6 +42,38 @@ class ViewController: UIViewController, RedisManagerDelegate, UITextFieldDelegat
                                    port: ViewController.defaultRedisPort,
                                    pwd: ViewController.defaultRedisPwd)
 
+        self.redisManager2?.connect(host: ViewController.defaultRedisHost,
+                                   port: ViewController.defaultRedisPort,
+                                   pwd: ViewController.defaultRedisPwd)
+
+        self.redisManager3?.connect(host: ViewController.defaultRedisHost,
+                                   port: ViewController.defaultRedisPort,
+                                   pwd: ViewController.defaultRedisPwd)
+
+        self.redisManager4?.connect(host: ViewController.defaultRedisHost,
+                                    port: ViewController.defaultRedisPort,
+                                    pwd: ViewController.defaultRedisPwd)
+
+        self.redisManager5?.connect(host: ViewController.defaultRedisHost,
+                                    port: ViewController.defaultRedisPort,
+                                    pwd: ViewController.defaultRedisPwd)
+
+        self.redisManager6?.connect(host: ViewController.defaultRedisHost,
+                                    port: ViewController.defaultRedisPort,
+                                    pwd: ViewController.defaultRedisPwd)
+
+        self.redisManager7?.connect(host: ViewController.defaultRedisHost,
+                                    port: ViewController.defaultRedisPort,
+                                    pwd: ViewController.defaultRedisPwd)
+
+        self.redisManager8?.connect(host: ViewController.defaultRedisHost,
+                                    port: ViewController.defaultRedisPort,
+                                    pwd: ViewController.defaultRedisPwd)
+
+        self.redisManager9?.connect(host: ViewController.defaultRedisHost,
+                                    port: ViewController.defaultRedisPort,
+                                    pwd: ViewController.defaultRedisPwd)
+
         self.subscriptionManager?.connect(host: ViewController.defaultRedisHost,
                                           port: ViewController.defaultRedisPort,
                                           pwd: ViewController.defaultRedisPwd)
@@ -44,6 +84,10 @@ class ViewController: UIViewController, RedisManagerDelegate, UITextFieldDelegat
 
         textField.resignFirstResponder()
         return false
+    }
+
+    @IBAction func disconnect() {
+        self.redisManager?.close();
     }
 
     @IBAction func executeTapped() {

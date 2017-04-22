@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -65,6 +65,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tTI-tp-ZkA">
+                                <rect key="frame" x="148" y="309" width="78" height="30"/>
+                                <state key="normal" title="Disconnect"/>
+                                <connections>
+                                    <action selector="disconnect" destination="vXZ-lx-hvc" eventType="touchUpInside" id="cHV-z3-9fM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -72,6 +79,7 @@
                             <constraint firstItem="8ka-ee-gqX" firstAttribute="top" secondItem="alH-tH-gdF" secondAttribute="bottom" constant="12" id="EVq-RT-gGY"/>
                             <constraint firstItem="1gh-LF-dDh" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="15" id="Nok-cK-RYQ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="i9Z-J8-2Iq" secondAttribute="trailing" constant="15" id="Ptv-fi-9hG"/>
+                            <constraint firstItem="tTI-tp-ZkA" firstAttribute="top" secondItem="i9Z-J8-2Iq" secondAttribute="bottom" id="RAg-Re-tAo"/>
                             <constraint firstItem="8ka-ee-gqX" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="RoV-cD-bEB"/>
                             <constraint firstItem="i9Z-J8-2Iq" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="WoU-K4-acb"/>
                             <constraint firstItem="5pI-Vw-xPN" firstAttribute="top" secondItem="i9Z-J8-2Iq" secondAttribute="bottom" constant="12" id="Y5v-8C-JUf"/>
@@ -80,6 +88,7 @@
                             <constraint firstItem="i9Z-J8-2Iq" firstAttribute="top" secondItem="Riy-cb-UgR" secondAttribute="bottom" constant="5" id="bei-B2-MVE"/>
                             <constraint firstItem="alH-tH-gdF" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="15" id="efB-6R-cOB"/>
                             <constraint firstItem="Riy-cb-UgR" firstAttribute="top" secondItem="8ka-ee-gqX" secondAttribute="bottom" constant="15" id="jtR-RH-fgw"/>
+                            <constraint firstItem="tTI-tp-ZkA" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="ona-f5-gIN"/>
                             <constraint firstItem="alH-tH-gdF" firstAttribute="top" secondItem="1gh-LF-dDh" secondAttribute="bottom" constant="15" id="oq3-Rt-fYF"/>
                             <constraint firstItem="Riy-cb-UgR" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="rjf-dS-8qG"/>
                             <constraint firstItem="i9Z-J8-2Iq" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="15" id="zej-ab-jj9"/>

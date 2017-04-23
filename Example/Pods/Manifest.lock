@@ -1,6 +1,6 @@
 PODS:
-  - PSSCocoaAsyncSocket (100.0.1)
-  - PSSRedisClient (0.1.4):
+  - PSSCocoaAsyncSocket (100.0.2)
+  - PSSRedisClient (0.1.5):
     - PSSCocoaAsyncSocket
 
 DEPENDENCIES:
@@ -11,8 +11,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  PSSCocoaAsyncSocket: f6a52b117df70f9429231e261f741fb0dec665b2
-  PSSRedisClient: 5d8e0173e8332b2e75eaa3907905e51c19c50a92
+  PSSCocoaAsyncSocket: d76fcbb89407ec377b971f27ecfa2d12e2446aa9
+  PSSRedisClient: b3a4637c9a3531429898f86bc08bd39a86482bc7
 
 PODFILE CHECKSUM: c190159c659906db7a9872a8571e75c9d39a2f7e
 

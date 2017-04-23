@@ -53,6 +53,7 @@ public class RedisClient: NSObject, GCDAsyncSocketDelegate, RedisMessageReceived
     private func doDisconnect() {
         self.socket.disconnect()
         self.parseManager.reset()
+        self.completionBlocks.removeAll()
     }
 
     public func close() {

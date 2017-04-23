@@ -171,6 +171,7 @@ public class RedisClient: NSObject, GCDAsyncSocketDelegate, RedisMessageReceived
         debugPrint("SOCKET: Disconnected me: \(String(describing: err?.localizedDescription))");
 
         self.parseManager.reset()
+        self.completionBlocks.removeAll()
         self.delegate?.socketDidDisconnect(client: self, error: err)
     }
 

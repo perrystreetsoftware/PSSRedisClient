@@ -24,5 +24,5 @@ A simple Swift-based interface to Redis, using CocoaAsyncSocket as the networkin
 
   s.source_files = 'PSSRedisClient/Classes/**/*'
   
-  s.dependency 'CocoaAsyncSocket'
+  s.dependency 'CocoaAsyncSocket', '>= 7.6.1'
 end

@@ -1,5 +1,7 @@
 use_frameworks!
 
+platform :ios, '9.0'
+
 target 'PSSRedisClient_Example' do
   pod 'PSSRedisClient', :path => '../'
 

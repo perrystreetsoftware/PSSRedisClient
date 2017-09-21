@@ -24,7 +24,7 @@ public class RedisClient: NSObject, GCDAsyncSocketDelegate, RedisMessageReceived
     var parseManager: RedisResponseParser
     var completionBlocks: Array<CompletionBlock?>
 
-    public init(delegate: RedisManagerDelegate?) {
+    @objc public init(delegate: RedisManagerDelegate?) {
         self.socket = GCDAsyncSocket(delegate: nil, delegateQueue: DispatchQueue.main)
         self.separator = RedisClient.convertStringIntoData(str: "\r\n")!
         self.parseManager = RedisResponseParser(delegate: nil)

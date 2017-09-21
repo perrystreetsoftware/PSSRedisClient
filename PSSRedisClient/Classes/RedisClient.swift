@@ -56,15 +56,15 @@ public class RedisClient: NSObject, GCDAsyncSocketDelegate, RedisMessageReceived
         self.completionBlocks.removeAll()
     }
 
-    public func close() {
+    @objc public func close() {
         self.doDisconnect()
     }
 
-    public func isConnected() -> Bool {
+    @objc public func isConnected() -> Bool {
         return self.socket.isConnected
     }
 
-    public func connect(host: String, port: Int, pwd: String?) {
+    @objc public func connect(host: String, port: Int, pwd: String?) {
         // We might be using a new auth or channel, so let's disconnect if we are connected
         if self.socket.isConnected {
             self.doDisconnect()
@@ -110,13 +110,13 @@ public class RedisClient: NSObject, GCDAsyncSocketDelegate, RedisMessageReceived
 
     // MARK: Redis functions
 
-    public func exec(command: String, completion: CompletionBlock?) {
+    @objc public func exec(command: String, completion: CompletionBlock?) {
         let components = command.components(separatedBy: [" "])
 
         self.exec(args: components, completion: completion)
     }
 
-    public func exec(args: Array<String>, completion: CompletionBlock?) {
+    @objc public func exec(args: Array<String>, completion: CompletionBlock?) {
         var commandArray = Array<String>()
 
         commandArray.append("*\(args.count)\r\n")
@@ -141,7 +141,7 @@ public class RedisClient: NSObject, GCDAsyncSocketDelegate, RedisMessageReceived
 
     // MARK: CocaAsyncSocket Callbacks
 
-    public func socket(_ sock: GCDAsyncSocket, didRead data: Data, withTag tag: Int) {
+    @objc public func socket(_ sock: GCDAsyncSocket, didRead data: Data, withTag tag: Int) {
         guard let line: String = String(data: data, encoding: .utf8) else {
             return
         }
@@ -153,21 +153,21 @@ public class RedisClient: NSObject, GCDAsyncSocketDelegate, RedisMessageReceived
         self.socket.readData(to: self.separator, withTimeout: -1, tag: 0)
     }
 
-    public func socket(_ sock: GCDAsyncSocket, didReadPartialDataOfLength partialLength: UInt, tag: Int) {
+    @objc public func socket(_ sock: GCDAsyncSocket, didReadPartialDataOfLength partialLength: UInt, tag: Int) {
         debugPrint("SOCKET: Got something")
     }
 
-    public func socket(_ sock: GCDAsyncSocket, didConnectToHost host: String, port: UInt16) {
+    @objc public func socket(_ sock: GCDAsyncSocket, didConnectToHost host: String, port: UInt16) {
         debugPrint("SOCKET: Cool, I'm connected! That was easy.");
 
         self.delegate?.socketDidConnect(client: self)
     }
 
-    public func socket(_ sock: GCDAsyncSocket, didConnectTo url: URL) {
+    @objc public func socket(_ sock: GCDAsyncSocket, didConnectTo url: URL) {
         debugPrint("SOCKET: Cool, I'm connected! That was easy.");
     }
 
-    public func socketDidDisconnect(_ sock: GCDAsyncSocket, withError err: Error?) {
+    @objc public func socketDidDisconnect(_ sock: GCDAsyncSocket, withError err: Error?) {
         debugPrint("SOCKET: Disconnected me: \(String(describing: err?.localizedDescription))");
 
         self.parseManager.reset()
@@ -175,7 +175,7 @@ public class RedisClient: NSObject, GCDAsyncSocketDelegate, RedisMessageReceived
         self.delegate?.socketDidDisconnect(client: self, error: err)
     }
 
-    public func socketDidCloseReadStream(_ sock: GCDAsyncSocket) {
+    @objc public func socketDidCloseReadStream(_ sock: GCDAsyncSocket) {
         debugPrint("SOCKET: socketDidCloseReadStream: Disconnecting so we can rerun our connection")
 
         self.doDisconnect()

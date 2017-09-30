@@ -54,7 +54,7 @@ class RedisGenericParser: NSObject, RedisParserInterface {
 
         let separatorRange = line.range(of: RedisStringParserClassConstants.separatorString)
 
-        if (separatorRange.location == NSNotFound) {
+        if (separatorRange.location == NSNotFound || separatorRange.location <= 0) {
             return
         }
 

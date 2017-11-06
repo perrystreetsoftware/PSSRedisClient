@@ -91,7 +91,7 @@ public class RedisClient: NSObject, GCDAsyncSocketDelegate, RedisMessageReceived
     }
 
     static func addStringToCommandArray(commandArray: inout Array<String>, str1: String) {
-        commandArray.append("$\(str1.characters.count)\r\n")
+        commandArray.append("$\(str1.count)\r\n")
         commandArray.append("\(str1)\r\n")
     }
 

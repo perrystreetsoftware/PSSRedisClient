@@ -63,7 +63,7 @@ class RedisGenericParser: NSObject, RedisParserInterface {
         let firstCharacter: Character = Character(UnicodeScalar(line.character(at: 0))!)
 
         switch (firstCharacter) {
-        case "-".characters.first!:
+        case "-".first!:
             debugPrint("SOCKET: - -- \(restOfLine)");
 
             let error =
@@ -71,17 +71,17 @@ class RedisGenericParser: NSObject, RedisParserInterface {
                         code: -1,
                         userInfo: ["message": restOfLine]);
             results.append(error)
-        case ":".characters.first!:
+        case ":".first!:
             debugPrint("SOCKET: + -- \(restOfLine)");
 
             if let restOfLineInt = Int(restOfLine) {
                 results.append(restOfLineInt)
             }
-        case "+".characters.first!:
+        case "+".first!:
             debugPrint("SOCKET: + -- \(restOfLine)");
 
             results.append(restOfLine);
-        case "$".characters.first!:
+        case "$".first!:
             debugPrint("SOCKET: $ -- \(restOfLine)");
 
             if let length = Int(restOfLine) {
@@ -92,7 +92,7 @@ class RedisGenericParser: NSObject, RedisParserInterface {
                     parserStack.append(stringParser)
                 }
             }
-        case "*".characters.first!:
+        case "*".first!:
             debugPrint("SOCKET: * -- \(restOfLine)");
 
             if let length = Int(restOfLine) {

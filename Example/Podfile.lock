@@ -1,19 +1,23 @@
 PODS:
-  - CocoaAsyncSocket (7.6.1)
-  - PSSRedisClient (0.1.4):
+  - CocoaAsyncSocket (7.6.3)
+  - PSSRedisClient (0.1.14):
     - CocoaAsyncSocket (>= 7.6.1)
 
 DEPENDENCIES:
   - PSSRedisClient (from `../`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - CocoaAsyncSocket
 
 EXTERNAL SOURCES:
   PSSRedisClient:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CocoaAsyncSocket: 7eadd3f59e1a6c84e2aefc93e9ff7b55156fe174
-  PSSRedisClient: f4290e288767c7569e8bec7907bca637cc34d225
+  CocoaAsyncSocket: eafaa68a7e0ec99ead0a7b35015e0bf25d2c8987
+  PSSRedisClient: 1b8e9d807999f0ee3d1f09e5b80da4367ba41550
 
-PODFILE CHECKSUM: a25dbebe1ab6054082907a5a6e8f3015782f07f6
+PODFILE CHECKSUM: aee095853e4b79d728970208bf4d75fb75074742
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.6.1

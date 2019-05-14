@@ -10,6 +10,7 @@ import UIKit
 import PSSRedisClient
 
 class ViewController: UIViewController, RedisManagerDelegate, UITextFieldDelegate {
+
     @IBOutlet weak var input: UITextField!
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var results: UITextView!
@@ -30,6 +31,7 @@ class ViewController: UIViewController, RedisManagerDelegate, UITextFieldDelegat
 
         self.redisManager = RedisClient(delegate: self)
         self.subscriptionManager = RedisClient(delegate: self)
+        subscriptionManager?.enableAutoPing = true
         self.redisManager?.connect(host: ViewController.defaultRedisHost,
                                    port: ViewController.defaultRedisPort,
                                    pwd: ViewController.defaultRedisPwd)
@@ -71,7 +73,7 @@ class ViewController: UIViewController, RedisManagerDelegate, UITextFieldDelegat
     }
 
     func subscribe(channel: String) {
-        self.subscriptionManager?.exec(args: ["subscribe", channel], completion: nil)
+        self.subscriptionManager?.subscribe(to: channel)
     }
 
     func subscriptionMessageReceived(results: NSArray) {
@@ -103,6 +105,14 @@ class ViewController: UIViewController, RedisManagerDelegate, UITextFieldDelegat
         } else {
             self.results.text = "Results: \(message.componentsJoined(by: " "))"
         }
+    }
+
+    func socketDidSubscribe(socket: RedisClient, channel: String) {
+        debugPrint("SOCKET: Subscribed to '\(channel)'")
+    }
+
+    func socketDidReceivePong(socket: RedisClient) {
+        debugPrint("SOCKET: Pong received")
     }
 }
 

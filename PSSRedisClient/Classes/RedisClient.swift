@@ -12,6 +12,8 @@ public protocol RedisManagerDelegate: NSObjectProtocol {
     func subscriptionMessageReceived(channel: String, message: String)
     func socketDidDisconnect(client: RedisClient, error: Error?)
     func socketDidConnect(client: RedisClient)
+    func socketDidSubscribe(socket: RedisClient, channel: String)
+    func socketDidReceivePong(socket: RedisClient)
 }
 
 @objc
@@ -23,6 +25,16 @@ public class RedisClient: NSObject, GCDAsyncSocketDelegate, RedisMessageReceived
     var separator: Data
     var parseManager: RedisResponseParser
     var completionBlocks: Array<CompletionBlock?>
+
+    @objc private(set) public var lastPongDate: Date?
+    @objc public var autoPingInterval: TimeInterval = 20
+    @objc public var enableAutoPing: Bool = false {
+        didSet {
+            if enableAutoPing == true {
+                startAutoPinging()
+            }
+        }
+    }
 
     @objc public init(delegate: RedisManagerDelegate?) {
         self.socket = GCDAsyncSocket(delegate: nil, delegateQueue: DispatchQueue.main)
@@ -54,6 +66,27 @@ public class RedisClient: NSObject, GCDAsyncSocketDelegate, RedisMessageReceived
         self.socket.disconnect()
         self.parseManager.reset()
         self.completionBlocks.removeAll()
+    }
+
+    private var isAutoPingScheduled = false
+    private func startAutoPinging() {
+
+        guard isAutoPingScheduled == false else {
+            return
+        }
+
+        if enableAutoPing && isConnected() {
+            isAutoPingScheduled = true
+            ping()
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + autoPingInterval) { [weak self] in
+                guard let self = self else { return }
+                self.isAutoPingScheduled = false
+                self.startAutoPinging()
+            }
+        } else {
+            isAutoPingScheduled = false
+        }
     }
 
     @objc public func close() {
@@ -139,6 +172,15 @@ public class RedisClient: NSObject, GCDAsyncSocketDelegate, RedisMessageReceived
         self.socket.readData(to: self.separator, withTimeout: -1, tag: 0)
     }
 
+    @objc public func ping() {
+        debugPrint("SOCKET: Sending ping")
+        exec(args: ["ping"], completion: nil)
+    }
+
+    @objc public func subscribe(to channel: String) {
+        exec(args: ["subscribe", channel], completion: nil)
+    }
+
     // MARK: CocaAsyncSocket Callbacks
 
     @objc public func socket(_ sock: GCDAsyncSocket, didRead data: Data, withTag tag: Int) {
@@ -161,6 +203,7 @@ public class RedisClient: NSObject, GCDAsyncSocketDelegate, RedisMessageReceived
         debugPrint("SOCKET: Cool, I'm connected! That was easy.");
 
         self.delegate?.socketDidConnect(client: self)
+        startAutoPinging()
     }
 
     @objc public func socket(_ sock: GCDAsyncSocket, didConnectTo url: URL) {
@@ -184,17 +227,27 @@ public class RedisClient: NSObject, GCDAsyncSocketDelegate, RedisMessageReceived
     // MARK: Parser
 
     func redisMessageReceived(results: NSArray) {
-        // See if this is a subscription message - those get sent via delegate method
-        if (results.count == 3 && results.firstObject as? String != nil) {
-            let message = results.firstObject as! String
 
-            if (message == "message") {
-                debugPrint("SOCKET: Sending message of \(results[2])");
+        if let type = results.firstObject as? String {
+            switch type.lowercased() {
+            case "message":
+                if results.count == 3 {
+                    debugPrint("SOCKET: Sending message of \(results[2])");
 
-                self.delegate?.subscriptionMessageReceived(channel: results[1] as! String,
-                                                           message: results[2] as! String)
-
-                return
+                    self.delegate?.subscriptionMessageReceived(channel: results[1] as! String,
+                                                               message: results[2] as! String)
+                }
+            case "pong":
+                debugPrint("SOCKET: Received pong")
+                lastPongDate = Date()
+                delegate?.socketDidReceivePong(socket: self)
+            case "subscribe":
+                if let channel = results[1] as? String {
+                    debugPrint("SOCKET: Subscribed to \(channel)")
+                    delegate?.socketDidSubscribe(socket: self, channel: channel)
+                }
+            default:
+                break
             }
         }
 

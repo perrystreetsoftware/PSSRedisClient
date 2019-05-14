@@ -66,6 +66,7 @@ public class RedisClient: NSObject, GCDAsyncSocketDelegate, RedisMessageReceived
         self.socket.disconnect()
         self.parseManager.reset()
         self.completionBlocks.removeAll()
+        self.lastPongDate = nil
     }
 
     private var isAutoPingScheduled = false

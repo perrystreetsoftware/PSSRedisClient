@@ -14,6 +14,7 @@ public protocol RedisManagerDelegate: NSObjectProtocol {
     func socketDidConnect(client: RedisClient)
     func socketDidSubscribe(socket: RedisClient, channel: String)
     func socketDidReceivePong(socket: RedisClient)
+    func clientSideError(client: RedisClient, error: Error)
 }
 
 @objc
@@ -229,6 +230,8 @@ public class RedisClient: NSObject, GCDAsyncSocketDelegate, RedisMessageReceived
 
     func redisMessageReceived(results: NSArray) {
 
+        var resultsWereProcessed = false
+
         if let type = results.firstObject as? String {
             switch type.lowercased() {
             case "message":
@@ -237,19 +240,30 @@ public class RedisClient: NSObject, GCDAsyncSocketDelegate, RedisMessageReceived
 
                     self.delegate?.subscriptionMessageReceived(channel: results[1] as! String,
                                                                message: results[2] as! String)
+                    resultsWereProcessed = true
                 }
             case "pong":
                 debugPrint("SOCKET: Received pong")
                 lastPongDate = Date()
                 delegate?.socketDidReceivePong(socket: self)
+                resultsWereProcessed = true
             case "subscribe":
-                if let channel = results[1] as? String {
+                if results.count >= 2, let channel = results[1] as? String {
                     debugPrint("SOCKET: Subscribed to \(channel)")
                     delegate?.socketDidSubscribe(socket: self, channel: channel)
+                    resultsWereProcessed = true
                 }
             default:
+                resultsWereProcessed = true
                 break
             }
+        }
+
+        if resultsWereProcessed == false {
+            let error = NSError(domain: RedisStringParserClassConstants.errorDomain,
+                    code: 0,
+                    userInfo: [NSLocalizedDescriptionKey: "Failed to parse reponse.", "payload": "\(results)"])
+            delegate?.clientSideError(client: self, error: error)
         }
 
         if (self.completionBlocks.count > 0) {

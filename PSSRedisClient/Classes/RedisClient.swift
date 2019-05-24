@@ -27,6 +27,24 @@ public class RedisClient: NSObject, GCDAsyncSocketDelegate, RedisMessageReceived
     var parseManager: RedisResponseParser
     var completionBlocks: Array<CompletionBlock?>
 
+    public class Debug {
+        public var logTraffic = false
+        private(set) public var loggedTraffic = [String]()
+
+        func reset() {
+            loggedTraffic.removeAll()
+        }
+
+        func log(_ string: String) {
+            guard logTraffic else {
+                return
+            }
+
+            loggedTraffic.append(string)
+        }
+    }
+    public let debug = Debug()
+
     @objc private(set) public var lastPongDate: Date?
     @objc public var autoPingInterval: TimeInterval = 20
     @objc public var enableAutoPing: Bool = false {
@@ -68,6 +86,7 @@ public class RedisClient: NSObject, GCDAsyncSocketDelegate, RedisMessageReceived
         self.parseManager.reset()
         self.completionBlocks.removeAll()
         self.lastPongDate = nil
+        self.debug.reset()
     }
 
     private var isAutoPingScheduled = false
@@ -187,8 +206,10 @@ public class RedisClient: NSObject, GCDAsyncSocketDelegate, RedisMessageReceived
 
     @objc public func socket(_ sock: GCDAsyncSocket, didRead data: Data, withTag tag: Int) {
         guard let line: String = String(data: data, encoding: .utf8) else {
+            debug.log("[data could not be converted to a string]")
             return
         }
+        debug.log(line)
         let trimmedString: String = line.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
 
         debugPrint("SOCKET: Line from didReadData is \(trimmedString)")

@@ -32,6 +32,7 @@ class ViewController: UIViewController, RedisManagerDelegate, UITextFieldDelegat
         self.redisManager = RedisClient(delegate: self)
         self.subscriptionManager = RedisClient(delegate: self)
         subscriptionManager?.enableAutoPing = true
+        subscriptionManager?.debug.logTraffic = true
         self.redisManager?.connect(host: ViewController.defaultRedisHost,
                                    port: ViewController.defaultRedisPort,
                                    pwd: ViewController.defaultRedisPwd)
@@ -113,6 +114,10 @@ class ViewController: UIViewController, RedisManagerDelegate, UITextFieldDelegat
 
     func socketDidReceivePong(socket: RedisClient) {
         debugPrint("SOCKET: Pong received")
+    }
+
+    func clientSideError(client: RedisClient, error: Error) {
+        
     }
 }
 

@@ -29,10 +29,12 @@ public class RedisClient: NSObject, GCDAsyncSocketDelegate, RedisMessageReceived
 
     public class Debug {
         public var logTraffic = false
+        public var maxLoggedLines: UInt = 30
         private(set) public var loggedTraffic = [String]()
 
         func reset() {
             loggedTraffic.removeAll()
+            log("[reset]")
         }
 
         func log(_ string: String) {
@@ -41,6 +43,9 @@ public class RedisClient: NSObject, GCDAsyncSocketDelegate, RedisMessageReceived
             }
 
             loggedTraffic.append(string)
+            if loggedTraffic.count > maxLoggedLines {
+                loggedTraffic = Array(loggedTraffic.dropFirst(loggedTraffic.count - Int(maxLoggedLines)))
+            }
         }
     }
     public let debug = Debug()
@@ -179,6 +184,7 @@ public class RedisClient: NSObject, GCDAsyncSocketDelegate, RedisMessageReceived
         }
 
         debugPrint("SOCKET: Command with \(commandArray.joined())")
+        debug.log("< \(commandArray.joined())")
 
         let data = RedisClient.convertStringIntoData(str: commandArray.joined())! as Data
 
@@ -209,7 +215,7 @@ public class RedisClient: NSObject, GCDAsyncSocketDelegate, RedisMessageReceived
             debug.log("[data could not be converted to a string]")
             return
         }
-        debug.log(line)
+        debug.log("> \(line)")
         let trimmedString: String = line.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
 
         debugPrint("SOCKET: Line from didReadData is \(trimmedString)")

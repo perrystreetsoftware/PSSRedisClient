@@ -7,36 +7,50 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		03AC228FE97E487AACC7280809F18527 /* Pods-PSSRedisClient_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C805D2A0D16BC7A4C43B8FB9AF0328 /* Pods-PSSRedisClient_Example-dummy.m */; };
+		03AC228FE97E487AACC7280809F18527 /* Pods-PSSRedisClient_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FD82246950405DC846F376E9B42298C8 /* Pods-PSSRedisClient_Example-dummy.m */; };
 		0751623847963E1D1D96FA5F9FD2B290 /* RedisResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB5359B5080F4C61CF942AB2FCFBAF0 /* RedisResponseParser.swift */; };
 		276E4ED83C7CB3C7ABA8C315C95AF010 /* GCDAsyncSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DA293C446B580EEC70F631B729C1078 /* GCDAsyncSocket.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		29FDCCEB5B61FB63A7FB7559D028E132 /* CocoaAsyncSocket-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F184B8B0DBAD1F0946E118680583632A /* CocoaAsyncSocket-dummy.m */; };
 		2DA0D55676684987840C377BC486A642 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9A2BBEB32D8915A83E694EFD34C8FFC /* Foundation.framework */; };
 		30EB0441B370047F3A269D68E32BEC64 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = A64404F0A4CC1801E1409DF393AB248B /* GCDAsyncUdpSocket.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		349B44049A23348B5913ECDAD1CFBAAC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9A2BBEB32D8915A83E694EFD34C8FFC /* Foundation.framework */; };
-		3F309E396A142A4CAD2BCA10BD823127 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9A2BBEB32D8915A83E694EFD34C8FFC /* Foundation.framework */; };
+		3A89D5E6FCE009E6D4460618E31C633B /* Pods-PSSRedisClient_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A30FE5CAFE1FC2B376957471D534A939 /* Pods-PSSRedisClient_Tests-dummy.m */; };
 		4C20321A1137EDCF9CFA8CB68876B006 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B3A455E9C5EC46E1549ECE3A2BC17A4 /* CFNetwork.framework */; };
 		4FCBB9CE36B7C4394D23BE9CD1F58F12 /* CocoaAsyncSocket-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 366798829907BF9E85AD13F0031DEA02 /* CocoaAsyncSocket-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6252199935167923405C2D6EA48AD14A /* PSSRedisClient-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EF79C64257E02FBAD5902F6193AA676A /* PSSRedisClient-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6ED4F86FE6289F3AA4212731FD6D3F56 /* PSSRedisClient-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EF1E2F22025290660A50161460770161 /* PSSRedisClient-dummy.m */; };
-		75C5053175C342C6A465610B47C4D929 /* Pods-PSSRedisClient_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2396CD5A955CA9B3CE0C45DF9330C918 /* Pods-PSSRedisClient_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B0446EF8F41A78F83A141E8405916F8C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F22B758DC08AFEFDEC5D075EB80E2E48 /* Security.framework */; };
 		B854F9DBD614973F49DA4700F94CEFC2 /* GCDAsyncUdpSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = AA5A665204A6EB0247240DDA87819CB4 /* GCDAsyncUdpSocket.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BFDD0E42DB22C1E879CCAC6D8E504233 /* RedisClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFA6776395A82B980FC4A5B48FA765B /* RedisClient.swift */; };
+		C24A890722C695E3B0CEBA6D441615E4 /* Pods-PSSRedisClient_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CA53322BCD22D91D113D75081C403D14 /* Pods-PSSRedisClient_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C49615EF65685B3B3ED99637EE7A63BF /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D0D9393A92083DA9D32F56244F48A39 /* GCDAsyncSocket.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		D0D68CBB718AA27A8905546935E3AD18 /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9FEADCF4CF85B9DA173E3EFAB1150B2 /* CocoaAsyncSocket.framework */; };
-		D9A047B9B04A0AD17F217F04F6FF1E89 /* Pods-PSSRedisClient_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C4D39C1DAB1A684622C665EF3EE95F91 /* Pods-PSSRedisClient_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D9A047B9B04A0AD17F217F04F6FF1E89 /* Pods-PSSRedisClient_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F4AE461E36323D90CC0154369C71BD07 /* Pods-PSSRedisClient_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DC28B2032F4E4EACBD69E3FB05656C12 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9A2BBEB32D8915A83E694EFD34C8FFC /* Foundation.framework */; };
 		E9466139AA39BE8C848A17A8D94B15A8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9A2BBEB32D8915A83E694EFD34C8FFC /* Foundation.framework */; };
-		FA7FF0F1C5ADCF252FAFB3442550E68F /* Pods-PSSRedisClient_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBF0B14324D1FBF91FFC6A808A4214F /* Pods-PSSRedisClient_Tests-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		9F4F5BF38F3D0C25BD8EF92313ADACEA /* PBXContainerItemProxy */ = {
+		2D9B860687F9EF7FBC4D6F00FD94C504 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 76309BED843D6C108C1E0B97A9A4D953;
+			remoteInfo = CocoaAsyncSocket;
+		};
+		4ED9A6739FB81844DC18EBDF9F7E3C6B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = ED00FD419A4D9859CD10303032B5E2A2;
 			remoteInfo = "Pods-PSSRedisClient_Example";
+		};
+		6A6ED90B0E92D73F39905A2BBEBA7639 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B0EEEBBFEB8C8BD4391AFFE7ADA303F9;
+			remoteInfo = PSSRedisClient;
 		};
 		DEF0A023EEBA7AB512E0295B34631B25 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -62,64 +76,57 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		014B03E6F5924D03DADB9A26D2B6AC30 /* Pods-PSSRedisClient_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PSSRedisClient_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		060B31D0DDA16170E576C54CC3415931 /* CocoaAsyncSocket-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CocoaAsyncSocket-prefix.pch"; sourceTree = "<group>"; };
-		06126F961E77B40D9B6812FE5F957E9A /* Pods-PSSRedisClient_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-PSSRedisClient_Tests.modulemap"; sourceTree = "<group>"; };
 		0F5BE940630CEF4433B823E5403B47F6 /* PSSRedisClient.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PSSRedisClient.xcconfig; sourceTree = "<group>"; };
 		12D7105E7E0AE9478B1980478BC42A43 /* PSSRedisClient-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PSSRedisClient-prefix.pch"; sourceTree = "<group>"; };
-		1EF7CA461572289A71659C0800F4B941 /* Pods-PSSRedisClient_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PSSRedisClient_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		2396CD5A955CA9B3CE0C45DF9330C918 /* Pods-PSSRedisClient_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PSSRedisClient_Tests-umbrella.h"; sourceTree = "<group>"; };
+		19E9C4D7DB4A182B86E3A8DDBCA737E2 /* Pods-PSSRedisClient_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PSSRedisClient_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		1E668F48961992202EC4D2D109B8B416 /* Pods-PSSRedisClient_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PSSRedisClient_Example-frameworks.sh"; sourceTree = "<group>"; };
 		27451A78FBC4DE54DE48D29244223E34 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		28FC343148AB95901B9E0746E7295D2E /* Pods-PSSRedisClient_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PSSRedisClient_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		366798829907BF9E85AD13F0031DEA02 /* CocoaAsyncSocket-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CocoaAsyncSocket-umbrella.h"; sourceTree = "<group>"; };
 		3B3A455E9C5EC46E1549ECE3A2BC17A4 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
-		40268C8F90D75C9DB7D1460571778C3D /* Pods-PSSRedisClient_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PSSRedisClient_Tests-Info.plist"; sourceTree = "<group>"; };
 		46FAEC922E5B27DA716F5D735568BD1A /* CocoaAsyncSocket.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = CocoaAsyncSocket.modulemap; sourceTree = "<group>"; };
+		4D5F329B2C88FA9DA0796B9359CF9932 /* Pods-PSSRedisClient_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PSSRedisClient_Example.release.xcconfig"; sourceTree = "<group>"; };
+		4D8ADFE898E14A9A2A757477E588FF34 /* Pods-PSSRedisClient_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-PSSRedisClient_Example.modulemap"; sourceTree = "<group>"; };
 		4DB5359B5080F4C61CF942AB2FCFBAF0 /* RedisResponseParser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RedisResponseParser.swift; path = PSSRedisClient/Classes/RedisResponseParser.swift; sourceTree = "<group>"; };
-		510E7B0E92874C07698429CB46BF7CA3 /* Pods-PSSRedisClient_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-PSSRedisClient_Example.modulemap"; sourceTree = "<group>"; };
+		4F055FAC296AA9682867C08044F31145 /* Pods-PSSRedisClient_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PSSRedisClient_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		5395E373286090B5F042CE69D04DE9BD /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
 		5CFA6776395A82B980FC4A5B48FA765B /* RedisClient.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RedisClient.swift; path = PSSRedisClient/Classes/RedisClient.swift; sourceTree = "<group>"; };
-		67C4322F10F4F717099BED37B132DC10 /* Pods-PSSRedisClient_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PSSRedisClient_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		6B1AB56441838FD307AB62D129225E5F /* Pods-PSSRedisClient_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PSSRedisClient_Example-Info.plist"; sourceTree = "<group>"; };
 		6D0D9393A92083DA9D32F56244F48A39 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GCDAsyncSocket.m; path = Source/GCD/GCDAsyncSocket.m; sourceTree = "<group>"; };
 		8D3BB63DBF436F35154C7CCA6C7D34DB /* CocoaAsyncSocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CocoaAsyncSocket.framework; path = CocoaAsyncSocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DA293C446B580EEC70F631B729C1078 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCDAsyncSocket.h; path = Source/GCD/GCDAsyncSocket.h; sourceTree = "<group>"; };
-		8DBF0B14324D1FBF91FFC6A808A4214F /* Pods-PSSRedisClient_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PSSRedisClient_Tests-dummy.m"; sourceTree = "<group>"; };
-		94C805D2A0D16BC7A4C43B8FB9AF0328 /* Pods-PSSRedisClient_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PSSRedisClient_Example-dummy.m"; sourceTree = "<group>"; };
+		90BD7BF0CC419FBD1FD1CD83C5EC2A7A /* Pods-PSSRedisClient_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PSSRedisClient_Tests-Info.plist"; sourceTree = "<group>"; };
 		9750435DFDC7710C9328534CE2D2D184 /* CocoaAsyncSocket-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "CocoaAsyncSocket-Info.plist"; sourceTree = "<group>"; };
-		98E517417C064486C16CCEFB0719AEBE /* Pods-PSSRedisClient_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PSSRedisClient_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		9828F024D854DDF72FEE9ED87E0EE17C /* Pods-PSSRedisClient_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PSSRedisClient_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		9A9DCBBD34EFCF186B6842D0B9EE408C /* PSSRedisClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = PSSRedisClient.framework; path = PSSRedisClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CFF11C53E81CE161930CEDD33B96192 /* Pods_PSSRedisClient_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_PSSRedisClient_Example.framework; path = "Pods-PSSRedisClient_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D0912FF8516036AC621C78A16D3DF4E /* Pods-PSSRedisClient_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PSSRedisClient_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A30FE5CAFE1FC2B376957471D534A939 /* Pods-PSSRedisClient_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PSSRedisClient_Tests-dummy.m"; sourceTree = "<group>"; };
 		A64404F0A4CC1801E1409DF393AB248B /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GCDAsyncUdpSocket.m; path = Source/GCD/GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
 		AA5A665204A6EB0247240DDA87819CB4 /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCDAsyncUdpSocket.h; path = Source/GCD/GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
-		B4290C2CCADFC5615A2A5C85A5BE82F3 /* Pods-PSSRedisClient_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PSSRedisClient_Example-frameworks.sh"; sourceTree = "<group>"; };
 		C2B6339B0DEEA0DB10DC022EAA7060AB /* PSSRedisClient-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "PSSRedisClient-Info.plist"; sourceTree = "<group>"; };
-		C4D39C1DAB1A684622C665EF3EE95F91 /* Pods-PSSRedisClient_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PSSRedisClient_Example-umbrella.h"; sourceTree = "<group>"; };
-		CC6C026543BC9A97F120152D6F051CC0 /* Pods-PSSRedisClient_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PSSRedisClient_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		CA53322BCD22D91D113D75081C403D14 /* Pods-PSSRedisClient_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PSSRedisClient_Tests-umbrella.h"; sourceTree = "<group>"; };
+		CC78DAA785F09A03A67D79E674EF1AF1 /* Pods-PSSRedisClient_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-PSSRedisClient_Tests.modulemap"; sourceTree = "<group>"; };
 		CEC6E8CB270D834628D689E3F155796C /* CocoaAsyncSocket.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CocoaAsyncSocket.xcconfig; sourceTree = "<group>"; };
+		DDBD7D0F0752693FD17022D85C36B599 /* Pods-PSSRedisClient_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PSSRedisClient_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		E51E8929CFECD9F46C051E049C853B94 /* PSSRedisClient.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = PSSRedisClient.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		ED6DFC4C4FA23A61653A5BE1EEA4E156 /* Pods-PSSRedisClient_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PSSRedisClient_Example.release.xcconfig"; sourceTree = "<group>"; };
+		EB0978245454A3D7CDB48E918C7B2D4C /* Pods-PSSRedisClient_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PSSRedisClient_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		ECC99874A19401D906929D0DFED05454 /* Pods-PSSRedisClient_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PSSRedisClient_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		EF1E2F22025290660A50161460770161 /* PSSRedisClient-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "PSSRedisClient-dummy.m"; sourceTree = "<group>"; };
-		EF240B37DB3978764D51549EC0364481 /* Pods-PSSRedisClient_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PSSRedisClient_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		EF79C64257E02FBAD5902F6193AA676A /* PSSRedisClient-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PSSRedisClient-umbrella.h"; sourceTree = "<group>"; };
 		F184B8B0DBAD1F0946E118680583632A /* CocoaAsyncSocket-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CocoaAsyncSocket-dummy.m"; sourceTree = "<group>"; };
 		F22B758DC08AFEFDEC5D075EB80E2E48 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		F4AE461E36323D90CC0154369C71BD07 /* Pods-PSSRedisClient_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PSSRedisClient_Example-umbrella.h"; sourceTree = "<group>"; };
 		F6DB622287FEC6B2EE65E1D566EE2C71 /* PSSRedisClient.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = PSSRedisClient.modulemap; sourceTree = "<group>"; };
-		F891CB7EF4DF0FB0B7353D7940813AB5 /* Pods-PSSRedisClient_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PSSRedisClient_Example-Info.plist"; sourceTree = "<group>"; };
 		F8C7874544899E43FCF274E623AD17AD /* Pods_PSSRedisClient_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_PSSRedisClient_Tests.framework; path = "Pods-PSSRedisClient_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9A2BBEB32D8915A83E694EFD34C8FFC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		F9FEADCF4CF85B9DA173E3EFAB1150B2 /* CocoaAsyncSocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CocoaAsyncSocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCBD475FB8EC166BF68171B1F390F97F /* Pods-PSSRedisClient_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PSSRedisClient_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		FD82246950405DC846F376E9B42298C8 /* Pods-PSSRedisClient_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PSSRedisClient_Example-dummy.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		74FAF1D6FABBAF7FFA719627B65CAE07 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3F309E396A142A4CAD2BCA10BD823127 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8A66150F473982AAA9F3A9B8916178DE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -134,6 +141,14 @@
 			files = (
 				D0D68CBB718AA27A8905546935E3AD18 /* CocoaAsyncSocket.framework in Frameworks */,
 				2DA0D55676684987840C377BC486A642 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C534119A73C9D25187FB2E88A8E230D3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC28B2032F4E4EACBD69E3FB05656C12 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,39 +177,6 @@
 			path = ../..;
 			sourceTree = "<group>";
 		};
-		190AA93DE5A668BBC7ADE5EFBC768219 /* Pods-PSSRedisClient_Example */ = {
-			isa = PBXGroup;
-			children = (
-				510E7B0E92874C07698429CB46BF7CA3 /* Pods-PSSRedisClient_Example.modulemap */,
-				1EF7CA461572289A71659C0800F4B941 /* Pods-PSSRedisClient_Example-acknowledgements.markdown */,
-				67C4322F10F4F717099BED37B132DC10 /* Pods-PSSRedisClient_Example-acknowledgements.plist */,
-				94C805D2A0D16BC7A4C43B8FB9AF0328 /* Pods-PSSRedisClient_Example-dummy.m */,
-				B4290C2CCADFC5615A2A5C85A5BE82F3 /* Pods-PSSRedisClient_Example-frameworks.sh */,
-				F891CB7EF4DF0FB0B7353D7940813AB5 /* Pods-PSSRedisClient_Example-Info.plist */,
-				C4D39C1DAB1A684622C665EF3EE95F91 /* Pods-PSSRedisClient_Example-umbrella.h */,
-				CC6C026543BC9A97F120152D6F051CC0 /* Pods-PSSRedisClient_Example.debug.xcconfig */,
-				ED6DFC4C4FA23A61653A5BE1EEA4E156 /* Pods-PSSRedisClient_Example.release.xcconfig */,
-			);
-			name = "Pods-PSSRedisClient_Example";
-			path = "Target Support Files/Pods-PSSRedisClient_Example";
-			sourceTree = "<group>";
-		};
-		2D646C71F0F8A698B9AFB018B49C53DC /* Pods-PSSRedisClient_Tests */ = {
-			isa = PBXGroup;
-			children = (
-				06126F961E77B40D9B6812FE5F957E9A /* Pods-PSSRedisClient_Tests.modulemap */,
-				EF240B37DB3978764D51549EC0364481 /* Pods-PSSRedisClient_Tests-acknowledgements.markdown */,
-				014B03E6F5924D03DADB9A26D2B6AC30 /* Pods-PSSRedisClient_Tests-acknowledgements.plist */,
-				8DBF0B14324D1FBF91FFC6A808A4214F /* Pods-PSSRedisClient_Tests-dummy.m */,
-				40268C8F90D75C9DB7D1460571778C3D /* Pods-PSSRedisClient_Tests-Info.plist */,
-				2396CD5A955CA9B3CE0C45DF9330C918 /* Pods-PSSRedisClient_Tests-umbrella.h */,
-				9D0912FF8516036AC621C78A16D3DF4E /* Pods-PSSRedisClient_Tests.debug.xcconfig */,
-				98E517417C064486C16CCEFB0719AEBE /* Pods-PSSRedisClient_Tests.release.xcconfig */,
-			);
-			name = "Pods-PSSRedisClient_Tests";
-			path = "Target Support Files/Pods-PSSRedisClient_Tests";
-			sourceTree = "<group>";
-		};
 		5733FA69757FE567152B7F0713E72B88 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -218,11 +200,28 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		8CA53491BE1C9C546C08BB5A3DA890C0 /* Targets Support Files */ = {
+		8CFCB61BD18711A5E0A21533971C3BB5 /* Pods-PSSRedisClient_Example */ = {
 			isa = PBXGroup;
 			children = (
-				190AA93DE5A668BBC7ADE5EFBC768219 /* Pods-PSSRedisClient_Example */,
-				2D646C71F0F8A698B9AFB018B49C53DC /* Pods-PSSRedisClient_Tests */,
+				4D8ADFE898E14A9A2A757477E588FF34 /* Pods-PSSRedisClient_Example.modulemap */,
+				EB0978245454A3D7CDB48E918C7B2D4C /* Pods-PSSRedisClient_Example-acknowledgements.markdown */,
+				4F055FAC296AA9682867C08044F31145 /* Pods-PSSRedisClient_Example-acknowledgements.plist */,
+				FD82246950405DC846F376E9B42298C8 /* Pods-PSSRedisClient_Example-dummy.m */,
+				1E668F48961992202EC4D2D109B8B416 /* Pods-PSSRedisClient_Example-frameworks.sh */,
+				6B1AB56441838FD307AB62D129225E5F /* Pods-PSSRedisClient_Example-Info.plist */,
+				F4AE461E36323D90CC0154369C71BD07 /* Pods-PSSRedisClient_Example-umbrella.h */,
+				9828F024D854DDF72FEE9ED87E0EE17C /* Pods-PSSRedisClient_Example.debug.xcconfig */,
+				4D5F329B2C88FA9DA0796B9359CF9932 /* Pods-PSSRedisClient_Example.release.xcconfig */,
+			);
+			name = "Pods-PSSRedisClient_Example";
+			path = "Target Support Files/Pods-PSSRedisClient_Example";
+			sourceTree = "<group>";
+		};
+		906EA23A404EB0BED42BDABAF332CDCE /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				8CFCB61BD18711A5E0A21533971C3BB5 /* Pods-PSSRedisClient_Example */,
+				A632D6509A2B5CDC71C80B82D51BD578 /* Pods-PSSRedisClient_Tests */,
 			);
 			name = "Targets Support Files";
 			sourceTree = "<group>";
@@ -264,6 +263,23 @@
 			path = CocoaAsyncSocket;
 			sourceTree = "<group>";
 		};
+		A632D6509A2B5CDC71C80B82D51BD578 /* Pods-PSSRedisClient_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				CC78DAA785F09A03A67D79E674EF1AF1 /* Pods-PSSRedisClient_Tests.modulemap */,
+				ECC99874A19401D906929D0DFED05454 /* Pods-PSSRedisClient_Tests-acknowledgements.markdown */,
+				19E9C4D7DB4A182B86E3A8DDBCA737E2 /* Pods-PSSRedisClient_Tests-acknowledgements.plist */,
+				A30FE5CAFE1FC2B376957471D534A939 /* Pods-PSSRedisClient_Tests-dummy.m */,
+				DDBD7D0F0752693FD17022D85C36B599 /* Pods-PSSRedisClient_Tests-frameworks.sh */,
+				90BD7BF0CC419FBD1FD1CD83C5EC2A7A /* Pods-PSSRedisClient_Tests-Info.plist */,
+				CA53322BCD22D91D113D75081C403D14 /* Pods-PSSRedisClient_Tests-umbrella.h */,
+				FCBD475FB8EC166BF68171B1F390F97F /* Pods-PSSRedisClient_Tests.debug.xcconfig */,
+				28FC343148AB95901B9E0746E7295D2E /* Pods-PSSRedisClient_Tests.release.xcconfig */,
+			);
+			name = "Pods-PSSRedisClient_Tests";
+			path = "Target Support Files/Pods-PSSRedisClient_Tests";
+			sourceTree = "<group>";
+		};
 		B36CDA9CD0C9C2A6822AE0EEAD0C3172 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
@@ -298,7 +314,7 @@
 				7EC9E25B0E05BC0D8E3351FD5B1D87B2 /* Frameworks */,
 				BB2BDAA8DB999C491DAC5EAE1CFDC78F /* Pods */,
 				E5F863EDFC64CCFAF27BCAAD24550BC4 /* Products */,
-				8CA53491BE1C9C546C08BB5A3DA890C0 /* Targets Support Files */,
+				906EA23A404EB0BED42BDABAF332CDCE /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -334,14 +350,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EEF870AD2B47210CCA8ABCBABF8EA33C /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				75C5053175C342C6A465610B47C4D929 /* Pods-PSSRedisClient_Tests-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		F3924BD5363463BB2839E80172745D1B /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -350,9 +358,38 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F560C8CE52262E427408327F4515ACD2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C24A890722C695E3B0CEBA6D441615E4 /* Pods-PSSRedisClient_Tests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		62B8EFF4931FAA3964FF204E07D664EA /* Pods-PSSRedisClient_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 562FBCCCE742D8B988BF287DA5B8BB72 /* Build configuration list for PBXNativeTarget "Pods-PSSRedisClient_Tests" */;
+			buildPhases = (
+				F560C8CE52262E427408327F4515ACD2 /* Headers */,
+				FB6452DD26306A2F28861B47466BF1E3 /* Sources */,
+				C534119A73C9D25187FB2E88A8E230D3 /* Frameworks */,
+				6741904CAE73A6966E34913704F6C443 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F542C7688D686874F963BDB541685ED8 /* PBXTargetDependency */,
+				BED0AA728AD92D40CDE9C08EF7C07EFA /* PBXTargetDependency */,
+				20E3C02FE79FF8689912EDEB9E600040 /* PBXTargetDependency */,
+			);
+			name = "Pods-PSSRedisClient_Tests";
+			productName = "Pods-PSSRedisClient_Tests";
+			productReference = F8C7874544899E43FCF274E623AD17AD /* Pods_PSSRedisClient_Tests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		76309BED843D6C108C1E0B97A9A4D953 /* CocoaAsyncSocket */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3C0CB1EE7CDE278D8027F7C5D3794D8B /* Build configuration list for PBXNativeTarget "CocoaAsyncSocket" */;
@@ -369,25 +406,6 @@
 			name = CocoaAsyncSocket;
 			productName = CocoaAsyncSocket;
 			productReference = 8D3BB63DBF436F35154C7CCA6C7D34DB /* CocoaAsyncSocket.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		A5101FDEE1A05A613D121D58AB5CBBFE /* Pods-PSSRedisClient_Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2CD887B6DC2F081D705BF1EC6E029F69 /* Build configuration list for PBXNativeTarget "Pods-PSSRedisClient_Tests" */;
-			buildPhases = (
-				EEF870AD2B47210CCA8ABCBABF8EA33C /* Headers */,
-				934C03DCF7D64994FC65AFF7FA077BA6 /* Sources */,
-				74FAF1D6FABBAF7FFA719627B65CAE07 /* Frameworks */,
-				6F8515755129619933869DE85A731FE2 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				2A99834206C294AF7950956BFA12B9A5 /* PBXTargetDependency */,
-			);
-			name = "Pods-PSSRedisClient_Tests";
-			productName = "Pods-PSSRedisClient_Tests";
-			productReference = F8C7874544899E43FCF274E623AD17AD /* Pods_PSSRedisClient_Tests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		B0EEEBBFEB8C8BD4391AFFE7ADA303F9 /* PSSRedisClient */ = {
@@ -452,7 +470,7 @@
 			targets = (
 				76309BED843D6C108C1E0B97A9A4D953 /* CocoaAsyncSocket */,
 				ED00FD419A4D9859CD10303032B5E2A2 /* Pods-PSSRedisClient_Example */,
-				A5101FDEE1A05A613D121D58AB5CBBFE /* Pods-PSSRedisClient_Tests */,
+				62B8EFF4931FAA3964FF204E07D664EA /* Pods-PSSRedisClient_Tests */,
 				B0EEEBBFEB8C8BD4391AFFE7ADA303F9 /* PSSRedisClient */,
 			);
 		};
@@ -473,7 +491,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6F8515755129619933869DE85A731FE2 /* Resources */ = {
+		6741904CAE73A6966E34913704F6C443 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -508,14 +526,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		934C03DCF7D64994FC65AFF7FA077BA6 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FA7FF0F1C5ADCF252FAFB3442550E68F /* Pods-PSSRedisClient_Tests-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		AE884287562656279B0F0FB7AF6B8FE3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -526,14 +536,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FB6452DD26306A2F28861B47466BF1E3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A89D5E6FCE009E6D4460618E31C633B /* Pods-PSSRedisClient_Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		2A99834206C294AF7950956BFA12B9A5 /* PBXTargetDependency */ = {
+		20E3C02FE79FF8689912EDEB9E600040 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-PSSRedisClient_Example";
 			target = ED00FD419A4D9859CD10303032B5E2A2 /* Pods-PSSRedisClient_Example */;
-			targetProxy = 9F4F5BF38F3D0C25BD8EF92313ADACEA /* PBXContainerItemProxy */;
+			targetProxy = 4ED9A6739FB81844DC18EBDF9F7E3C6B /* PBXContainerItemProxy */;
 		};
 		7AA3F442D0E25A85906E83E10F9F1042 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -547,18 +565,30 @@
 			target = 76309BED843D6C108C1E0B97A9A4D953 /* CocoaAsyncSocket */;
 			targetProxy = EFDFE6035B2B6B63C2E7624C98300D17 /* PBXContainerItemProxy */;
 		};
+		BED0AA728AD92D40CDE9C08EF7C07EFA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PSSRedisClient;
+			target = B0EEEBBFEB8C8BD4391AFFE7ADA303F9 /* PSSRedisClient */;
+			targetProxy = 6A6ED90B0E92D73F39905A2BBEBA7639 /* PBXContainerItemProxy */;
+		};
 		CEB19E97F6071D1ACD3371DD29F32860 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = CocoaAsyncSocket;
 			target = 76309BED843D6C108C1E0B97A9A4D953 /* CocoaAsyncSocket */;
 			targetProxy = DEF0A023EEBA7AB512E0295B34631B25 /* PBXContainerItemProxy */;
 		};
+		F542C7688D686874F963BDB541685ED8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CocoaAsyncSocket;
+			target = 76309BED843D6C108C1E0B97A9A4D953 /* CocoaAsyncSocket */;
+			targetProxy = 2D9B860687F9EF7FBC4D6F00FD94C504 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		1263D88E25B699EB8CEB40E3720C633E /* Debug */ = {
+		086CB1D7609A34A2851DD21BAC9F7A69 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9D0912FF8516036AC621C78A16D3DF4E /* Pods-PSSRedisClient_Tests.debug.xcconfig */;
+			baseConfigurationReference = 28FC343148AB95901B9E0746E7295D2E /* Pods-PSSRedisClient_Tests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
@@ -586,10 +616,11 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
 		3EDFDB260A9D9F6CC901F7D65A7463F6 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -685,7 +716,7 @@
 		};
 		5A9EFE702978FB8DE1CF5C7F97254EF3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CC6C026543BC9A97F120152D6F051CC0 /* Pods-PSSRedisClient_Example.debug.xcconfig */;
+			baseConfigurationReference = 9828F024D854DDF72FEE9ED87E0EE17C /* Pods-PSSRedisClient_Example.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
@@ -815,6 +846,41 @@
 			};
 			name = Debug;
 		};
+		760378D5EC8217DCF0A160BCF18FB8F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FCBD475FB8EC166BF68171B1F390F97F /* Pods-PSSRedisClient_Tests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-PSSRedisClient_Tests/Pods-PSSRedisClient_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-PSSRedisClient_Tests/Pods-PSSRedisClient_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		7CF5282C1332FD890323C5BFD478013B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CEC6E8CB270D834628D689E3F155796C /* CocoaAsyncSocket.xcconfig */;
@@ -849,7 +915,7 @@
 		};
 		C571AEA95E39D6A9140706D6E4849D91 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ED6DFC4C4FA23A61653A5BE1EEA4E156 /* Pods-PSSRedisClient_Example.release.xcconfig */;
+			baseConfigurationReference = 4D5F329B2C88FA9DA0796B9359CF9932 /* Pods-PSSRedisClient_Example.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
@@ -869,42 +935,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-PSSRedisClient_Example/Pods-PSSRedisClient_Example.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		C717371DBAF15716F250DDC27689E135 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 98E517417C064486C16CCEFB0719AEBE /* Pods-PSSRedisClient_Tests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-PSSRedisClient_Tests/Pods-PSSRedisClient_Tests-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-PSSRedisClient_Tests/Pods-PSSRedisClient_Tests.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -955,15 +985,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2CD887B6DC2F081D705BF1EC6E029F69 /* Build configuration list for PBXNativeTarget "Pods-PSSRedisClient_Tests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1263D88E25B699EB8CEB40E3720C633E /* Debug */,
-				C717371DBAF15716F250DDC27689E135 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		3C0CB1EE7CDE278D8027F7C5D3794D8B /* Build configuration list for PBXNativeTarget "CocoaAsyncSocket" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -978,6 +999,15 @@
 			buildConfigurations = (
 				6DFA1578582149B7E24AD55CBA30F07A /* Debug */,
 				4CE281642D6EE9FAB113046B4B6328A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		562FBCCCE742D8B988BF287DA5B8BB72 /* Build configuration list for PBXNativeTarget "Pods-PSSRedisClient_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				760378D5EC8217DCF0A160BCF18FB8F0 /* Debug */,
+				086CB1D7609A34A2851DD21BAC9F7A69 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

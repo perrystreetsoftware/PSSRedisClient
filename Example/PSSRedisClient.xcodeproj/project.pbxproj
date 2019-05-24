@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		102EAA865C27F182ABB91B76 /* Pods_PSSRedisClient_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F07CE36579172291747CF45 /* Pods_PSSRedisClient_Tests.framework */; };
+		4B3B5F3D2296E6D200456846 /* ParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3B5F3C2296E6D200456846 /* ParserTests.swift */; };
 		5C3A75F30BEDA60EB5CF4374 /* Pods_PSSRedisClient_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFB0065F43C5FCFBE7113CE5 /* Pods_PSSRedisClient_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
@@ -31,6 +32,7 @@
 		1F07CE36579172291747CF45 /* Pods_PSSRedisClient_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PSSRedisClient_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		47C1130350FB8962AFF1E1B3 /* Pods-PSSRedisClient_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PSSRedisClient_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PSSRedisClient_Tests/Pods-PSSRedisClient_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		4A9ECFB6A4FDE8BC08BB05C5 /* Pods-PSSRedisClient_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PSSRedisClient_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PSSRedisClient_Example/Pods-PSSRedisClient_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		4B3B5F3C2296E6D200456846 /* ParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserTests.swift; sourceTree = "<group>"; };
 		4D49AA46A3E3BBD6CF880AB1 /* Pods-PSSRedisClient_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PSSRedisClient_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PSSRedisClient_Tests/Pods-PSSRedisClient_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* PSSRedisClient_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PSSRedisClient_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 			children = (
 				607FACEB1AFB9204008FA782 /* Tests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
+				4B3B5F3C2296E6D200456846 /* ParserTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
+				3EB4D0CA1FC2CD962E7C0DEF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -299,6 +303,30 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PSSRedisClient_Example/Pods-PSSRedisClient_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		3EB4D0CA1FC2CD962E7C0DEF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PSSRedisClient_Tests/Pods-PSSRedisClient_Tests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework",
+				"${BUILT_PRODUCTS_DIR}/PSSRedisClient/PSSRedisClient.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaAsyncSocket.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PSSRedisClient.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PSSRedisClient_Tests/Pods-PSSRedisClient_Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		735C83929BC1DE1356B22749 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -333,6 +361,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B3B5F3D2296E6D200456846 /* ParserTests.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

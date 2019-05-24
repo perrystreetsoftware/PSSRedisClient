@@ -1,6 +1,6 @@
 import UIKit
 import XCTest
-import PSSRedisClient
+@testable import PSSRedisClient
 
 class Tests: XCTestCase {
     

@@ -114,5 +114,9 @@ class ViewController: UIViewController, RedisManagerDelegate, UITextFieldDelegat
     func socketDidReceivePong(socket: RedisClient) {
         debugPrint("SOCKET: Pong received")
     }
+
+    func clientSideError(client: RedisClient, error: Error) {
+        
+    }
 }
 

@@ -183,16 +183,17 @@ class ParserTests: XCTestCase {
 
     func testParseNullArray() {
 
-        // FIXME: This should return nil for results array by the docs, but we don't currently support that.
+        // this will cause a crash
+        XCTAssert(false)
 
-        let resultsExpectation = expectation(description: "results")
-
-        testResults(input: ["*-1\r\n".data(using: .utf8)!]) { (results) in
-            XCTAssert(results.count == 0)
-            resultsExpectation.fulfill()
-        }
-
-        wait(for: [resultsExpectation], timeout: 10)
+//        let resultsExpectation = expectation(description: "results")
+//
+//        testResults(input: ["*-1\r\n".data(using: .utf8)!]) { (results) in
+//            XCTAssert(results.count == 0)
+//            resultsExpectation.fulfill()
+//        }
+//
+//        wait(for: [resultsExpectation], timeout: 10)
     }
 
     func testParseArrayOfArrays() {
@@ -218,8 +219,6 @@ class ParserTests: XCTestCase {
     }
 
     func testParseArrayWithNulllElements() {
-
-        // this is wrong
 
         let resultsExpectation = expectation(description: "results")
 

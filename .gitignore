@@ -33,3 +33,4 @@ Carthage
 # Pods/
 .ruby-version
 *~
+/.build

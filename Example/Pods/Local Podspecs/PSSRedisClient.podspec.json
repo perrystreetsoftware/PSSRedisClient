@@ -1,6 +1,6 @@
 {
   "name": "PSSRedisClient",
-  "version": "0.1.14",
+  "version": "0.1.17",
   "summary": "A simple Swift-based interface to Redis, using CocoaAsyncSocket",
   "description": "A simple Swift-based interface to Redis, using CocoaAsyncSocket as the networking layer and a swift-based implementation of the redis protocol.",
   "homepage": "https://github.com/perrystreetsoftware/PSSRedisClient",
@@ -13,16 +13,16 @@
   },
   "source": {
     "git": "https://github.com/perrystreetsoftware/PSSRedisClient.git",
-    "tag": "0.1.14"
+    "tag": "0.1.17"
   },
   "social_media_url": "https://twitter.com/esilverberg",
   "platforms": {
-    "ios": "9.0"
+    "ios": "12.0"
   },
-  "source_files": "PSSRedisClient/Classes/**/*",
+  "source_files": "Sources/PSSRedisClient/**/*",
   "dependencies": {
     "CocoaAsyncSocket": [
-      ">= 7.6.1"
+      ">= 7.6.4"
     ]
   }
 }

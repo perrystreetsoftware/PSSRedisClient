@@ -1,6 +1,6 @@
 PODS:
   - CocoaAsyncSocket (7.6.4)
-  - PSSRedisClient (0.1.17):
+  - PSSRedisClient (0.2.1):
     - CocoaAsyncSocket (>= 7.6.4)
 
 DEPENDENCIES:
@@ -16,8 +16,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   CocoaAsyncSocket: 694058e7c0ed05a9e217d1b3c7ded962f4180845
-  PSSRedisClient: 878a16415f130444cba21648c21e71b212344b90
+  PSSRedisClient: bccd018aa57597d1562e0606a7bed301e4d58cce
 
 PODFILE CHECKSUM: 6b1cea149243a8beca4b4234899fc6addacd8fbe
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.1

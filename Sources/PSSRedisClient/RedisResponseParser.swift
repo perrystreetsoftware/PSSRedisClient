@@ -22,9 +22,11 @@ struct RedisStringParserClassConstants {
 class RedisStringParser: NSObject, RedisParserInterface {
     var length: Int
     var value: String?
+    private var isDebugLogEnabled: Bool
 
-    init(length: Int) {
+    init(length: Int, isDebugLogEnabled: Bool) {
         self.length = length;
+        self.isDebugLogEnabled = isDebugLogEnabled
     }
 
     func parseLine(data: Data, parserStack: inout Array<RedisParserInterface>, results: inout Array<Any?>) {
@@ -38,7 +40,9 @@ class RedisStringParser: NSObject, RedisParserInterface {
 
             assert(self.length == separatorRange.location, "length mismatch");
 
-            debugPrint("SOCKET: string \(line)")
+            if (isDebugLogEnabled) {
+                debugPrint("SOCKET: string \(line)")
+            }
 
             results.append(line.substring(to: separatorRange.location));
         }
@@ -46,6 +50,12 @@ class RedisStringParser: NSObject, RedisParserInterface {
 }
 
 class RedisGenericParser: NSObject, RedisParserInterface {
+    private var isDebugLogEnabled: Bool
+    
+    init(isDebugLogEnabled: Bool) {
+        self.isDebugLogEnabled = isDebugLogEnabled
+    }
+    
     func parseLine(data: Data, parserStack: inout Array<RedisParserInterface>, results: inout Array<Any?>) {
 
         guard let line: NSString = NSString(data: data as Data, encoding: String.Encoding.utf8.rawValue) else {
@@ -61,10 +71,11 @@ class RedisGenericParser: NSObject, RedisParserInterface {
         let restOfLineRange = NSMakeRange(1, separatorRange.location - 1)
         let restOfLine: String = line.substring(with: restOfLineRange)
         let firstCharacter: Character = Character(UnicodeScalar(line.character(at: 0))!)
-
+        var debugPrefix: String? = nil
+        
         switch (firstCharacter) {
         case "-".first!:
-            debugPrint("SOCKET: - -- \(restOfLine)");
+            debugPrefix = "-"
 
             let error =
                 NSError(domain: RedisStringParserClassConstants.errorDomain,
@@ -72,32 +83,32 @@ class RedisGenericParser: NSObject, RedisParserInterface {
                         userInfo: ["message": restOfLine]);
             results.append(error)
         case ":".first!:
-            debugPrint("SOCKET: + -- \(restOfLine)");
+            debugPrefix = "+"
 
             if let restOfLineInt = Int(restOfLine) {
                 results.append(restOfLineInt)
             }
         case "+".first!:
-            debugPrint("SOCKET: + -- \(restOfLine)");
+            debugPrefix = "+"
 
             results.append(restOfLine);
         case "$".first!:
-            debugPrint("SOCKET: $ -- \(restOfLine)");
+            debugPrefix = "$"
 
             if let length = Int(restOfLine) {
                 if (length < 0) {
                     results.append(nil);
                 } else {
-                    let stringParser = RedisStringParser(length: length)
+                    let stringParser = RedisStringParser(length: length, isDebugLogEnabled: isDebugLogEnabled)
                     parserStack.append(stringParser)
                 }
             }
         case "*".first!:
-            debugPrint("SOCKET: * -- \(restOfLine)");
+            debugPrefix = "*"
 
             if let length = Int(restOfLine) {
                 for _ in 0..<length {
-                    let genericParser = RedisGenericParser()
+                    let genericParser = RedisGenericParser(isDebugLogEnabled: isDebugLogEnabled)
                     parserStack.append(genericParser);
                 }
             }
@@ -105,6 +116,11 @@ class RedisGenericParser: NSObject, RedisParserInterface {
         default:
             break;
         }
+        
+        if let debugPrefix = debugPrefix, isDebugLogEnabled == true {
+            debugPrint("SOCKET: \(debugPrefix) -- \(restOfLine)")
+        }
+        
     }
 }
 
@@ -112,10 +128,11 @@ class RedisResponseParser: NSObject {
     weak var delegate: RedisMessageReceivedDelegate?
     var parserStack: Array<RedisParserInterface>
     var results: Array<Any?>
+    private var isDebugLogEnabled: Bool
 
-    init(delegate: RedisMessageReceivedDelegate?) {
+    init(delegate: RedisMessageReceivedDelegate?, isDebugLogEnabled: Bool = true) {
         self.delegate = delegate
-
+        self.isDebugLogEnabled = isDebugLogEnabled
         self.parserStack = Array<RedisParserInterface>()
         self.results = Array<Any?>()
     }
@@ -128,7 +145,7 @@ class RedisResponseParser: NSObject {
     func parseLine(data: Data) {
 
         if (self.parserStack.count == 0) {
-            self.parserStack.append(RedisGenericParser())
+            self.parserStack.append(RedisGenericParser(isDebugLogEnabled: isDebugLogEnabled))
         }
 
         let parserInterface: RedisParserInterface = self.parserStack.last!

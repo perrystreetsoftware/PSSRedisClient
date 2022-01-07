@@ -29,8 +29,8 @@ class ViewController: UIViewController, RedisManagerDelegate, UITextFieldDelegat
 
         self.connectionInfo.text = "Disconnected"
 
-        self.redisManager = RedisClient(delegate: self)
-        self.subscriptionManager = RedisClient(delegate: self)
+        self.redisManager = RedisClient(delegate: self, isDebugLogEnabled: true)
+        self.subscriptionManager = RedisClient(delegate: self, isDebugLogEnabled: true)
         subscriptionManager?.enableAutoPing = true
         self.redisManager?.connect(host: ViewController.defaultRedisHost,
                                    port: ViewController.defaultRedisPort,

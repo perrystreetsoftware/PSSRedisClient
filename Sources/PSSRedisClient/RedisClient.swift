@@ -35,13 +35,16 @@ public class RedisClient: NSObject, GCDAsyncSocketDelegate, RedisMessageReceived
             }
         }
     }
+    
+    private var isDebugLogEnabled: Bool
 
-    @objc public init(delegate: RedisManagerDelegate?) {
+    @objc public init(delegate: RedisManagerDelegate?, isDebugLogEnabled: Bool = true) {
         self.socket = GCDAsyncSocket(delegate: nil, delegateQueue: DispatchQueue.main)
         self.separator = RedisClient.convertStringIntoData(str: "\r\n")!
         self.parseManager = RedisResponseParser(delegate: nil)
         self.delegate = delegate
         self.completionBlocks = Array<CompletionBlock>()
+        self.isDebugLogEnabled = isDebugLogEnabled
 
         super.init()
 
@@ -103,8 +106,7 @@ public class RedisClient: NSObject, GCDAsyncSocketDelegate, RedisMessageReceived
         if self.socket.isConnected {
             self.doDisconnect()
         }
-
-        debugPrint("SOCKET: Attempting doConnect to \(host) \(port) \(String(describing: pwd))")
+        logDebugMessage("SOCKET: Attempting doConnect to \(host) \(port) \(String(describing: pwd))")
 
         do {
             try self.socket.connect(toHost: host, onPort: UInt16(port))
@@ -120,7 +122,7 @@ public class RedisClient: NSObject, GCDAsyncSocketDelegate, RedisMessageReceived
                 }
             }
         } catch {
-            debugPrint("SOCKET: Unable to connect")
+            logDebugMessage("SOCKET: Unable to connect")
         }
     }
 
@@ -136,7 +138,6 @@ public class RedisClient: NSObject, GCDAsyncSocketDelegate, RedisMessageReceived
         for arg in args {
             addStringToCommandArray(commandArray: &commandArray, str1: arg)
         }
-
         debugPrint("SOCKET: Command with \(commandArray.joined())")
 
         return RedisClient.convertStringIntoData(str: commandArray.joined())! as Data
@@ -158,7 +159,7 @@ public class RedisClient: NSObject, GCDAsyncSocketDelegate, RedisMessageReceived
             RedisClient.addStringToCommandArray(commandArray: &commandArray, str1: arg)
         }
 
-        debugPrint("SOCKET: Command with \(commandArray.joined())")
+        logDebugMessage("SOCKET: Command with \(commandArray.joined())")
 
         let data = RedisClient.convertStringIntoData(str: commandArray.joined())! as Data
 
@@ -174,7 +175,7 @@ public class RedisClient: NSObject, GCDAsyncSocketDelegate, RedisMessageReceived
     }
 
     @objc public func ping() {
-        debugPrint("SOCKET: Sending ping")
+        logDebugMessage("SOCKET: Sending ping")
         exec(args: ["ping"], completion: nil)
     }
 
@@ -189,30 +190,28 @@ public class RedisClient: NSObject, GCDAsyncSocketDelegate, RedisMessageReceived
             return
         }
         let trimmedString: String = line.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-
-        debugPrint("SOCKET: Line from didReadData is \(trimmedString)")
+        logDebugMessage("SOCKET: Line from didReadData is \(trimmedString)")
 
         self.parseManager.parseLine(data: data)
         self.socket.readData(to: self.separator, withTimeout: -1, tag: 0)
     }
 
     @objc public func socket(_ sock: GCDAsyncSocket, didReadPartialDataOfLength partialLength: UInt, tag: Int) {
-        debugPrint("SOCKET: Got something")
+        logDebugMessage("SOCKET: Got something")
     }
 
     @objc public func socket(_ sock: GCDAsyncSocket, didConnectToHost host: String, port: UInt16) {
-        debugPrint("SOCKET: Cool, I'm connected! That was easy.");
-
+        logDebugMessage("SOCKET: Cool, I'm connected! That was easy.");
         self.delegate?.socketDidConnect(client: self)
         startAutoPinging()
     }
 
     @objc public func socket(_ sock: GCDAsyncSocket, didConnectTo url: URL) {
-        debugPrint("SOCKET: Cool, I'm connected! That was easy.");
+        logDebugMessage("SOCKET: Cool, I'm connected! That was easy.");
     }
 
     @objc public func socketDidDisconnect(_ sock: GCDAsyncSocket, withError err: Error?) {
-        debugPrint("SOCKET: Disconnected me: \(String(describing: err?.localizedDescription))");
+        logDebugMessage("SOCKET: Disconnected me: \(String(describing: err?.localizedDescription))");
 
         self.parseManager.reset()
         self.completionBlocks.removeAll()
@@ -220,8 +219,9 @@ public class RedisClient: NSObject, GCDAsyncSocketDelegate, RedisMessageReceived
     }
 
     @objc public func socketDidCloseReadStream(_ sock: GCDAsyncSocket) {
-        debugPrint("SOCKET: socketDidCloseReadStream: Disconnecting so we can rerun our connection")
-
+        logDebugMessage("SOCKET: socketDidCloseReadStream: Disconnecting so we can rerun our connection")
+        
+        
         self.doDisconnect()
     }
 
@@ -233,18 +233,18 @@ public class RedisClient: NSObject, GCDAsyncSocketDelegate, RedisMessageReceived
             switch type.lowercased() {
             case "message":
                 if results.count == 3 {
-                    debugPrint("SOCKET: Sending message of \(results[2])");
+                    logDebugMessage("SOCKET: Sending message of \(results[2])");
 
                     self.delegate?.subscriptionMessageReceived(channel: results[1] as! String,
                                                                message: results[2] as! String)
                 }
             case "pong":
-                debugPrint("SOCKET: Received pong")
+                logDebugMessage("SOCKET: Received pong")
                 lastPongDate = Date()
                 delegate?.socketDidReceivePong(socket: self)
             case "subscribe":
                 if results.count >= 2, let channel = results[1] as? String {
-                    debugPrint("SOCKET: Subscribed to \(channel)")
+                    logDebugMessage("SOCKET: Subscribed to \(channel)")
                     delegate?.socketDidSubscribe(socket: self, channel: channel)
                 }
             default:
@@ -257,7 +257,13 @@ public class RedisClient: NSObject, GCDAsyncSocketDelegate, RedisMessageReceived
                 completionBlock(results)
             }
         } else {
-            debugPrint("No completion blocks to send message \(results)")
+            logDebugMessage("No completion blocks to send message \(results)")
+        }
+    }
+    
+    private func logDebugMessage(_ message: String) {
+        if (isDebugLogEnabled) {
+            debugPrint(message)
         }
     }
 }

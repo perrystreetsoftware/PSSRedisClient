@@ -41,7 +41,7 @@ public class RedisClient: NSObject, GCDAsyncSocketDelegate, RedisMessageReceived
     @objc public init(delegate: RedisManagerDelegate?, isDebugLogEnabled: Bool = true) {
         self.socket = GCDAsyncSocket(delegate: nil, delegateQueue: DispatchQueue.main)
         self.separator = RedisClient.convertStringIntoData(str: "\r\n")!
-        self.parseManager = RedisResponseParser(delegate: nil)
+        self.parseManager = RedisResponseParser(delegate: nil, isDebugLogEnabled: isDebugLogEnabled)
         self.delegate = delegate
         self.completionBlocks = Array<CompletionBlock>()
         self.isDebugLogEnabled = isDebugLogEnabled
